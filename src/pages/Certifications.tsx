@@ -117,11 +117,11 @@ const Certifications = () => {
                     className="card group hover:shadow-lg cursor-pointer"
                     onClick={() => setSelectedCertification(certification)}
                   >
-                    <div className="relative h-48 overflow-hidden">
+                    <div className="relative h-48 overflow-hidden bg-gray-50 flex items-center justify-center">
                       <img
                         src={certification.imageUrl}
                         alt={certification.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
                         <div className="p-4 text-white">
@@ -232,11 +232,11 @@ const Certifications = () => {
             className="bg-white rounded-xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto"
           >
             <div className="relative">
-              <div className="h-64 overflow-hidden rounded-t-xl">
+              <div className="h-64 overflow-hidden rounded-t-xl bg-gray-50 flex items-center justify-center">
                 <img
                   src={selectedCertification.imageUrl}
                   alt={selectedCertification.title}
-                  className="w-full h-full object-cover"
+                  className="max-w-full max-h-full object-contain"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
