@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SectionHeading from '../components/ui/SectionHeading';
 import SearchBar from '../components/ui/SearchBar';
 import FilterButton from '../components/ui/FilterButton';
-import { certificationsData, certificationProviders, Certification } from '../data/certificationsData';
-import { Calendar, ExternalLink, Award, Shield } from 'lucide-react';
+import { coursesData, providers, Course } from '../data/coursesData';
+import { Calendar, ExternalLink, Clock, BookOpen } from 'lucide-react';
 
 const formatDate = (date: Date) => {
   return new Intl.DateTimeFormat('es-ES', { 
@@ -14,44 +14,44 @@ const formatDate = (date: Date) => {
   }).format(date);
 };
 
-const getTypeColor = (type: string) => {
-  switch (type) {
-    case 'professional':
-      return 'bg-blue-100 text-blue-800';
-    case 'academic':
+const getLevelColor = (level: string) => {
+  switch (level) {
+    case 'básico':
       return 'bg-green-100 text-green-800';
-    case 'industry':
-      return 'bg-purple-100 text-purple-800';
+    case 'intermedio':
+      return 'bg-yellow-100 text-yellow-800';
+    case 'avanzado':
+      return 'bg-red-100 text-red-800';
     default:
       return 'bg-gray-100 text-gray-800';
   }
 };
 
-const getTypeIcon = (type: string) => {
-  switch (type) {
-    case 'professional':
-      return <Shield size={16} />;
-    case 'academic':
-      return <Award size={16} />;
-    case 'industry':
-      return <Award size={16} />;
+const getCategoryIcon = (category: string) => {
+  switch (category) {
+    case 'programming':
+      return '💻';
+    case 'tools':
+      return '🛠️';
+    case 'soft-skills':
+      return '🧠';
     default:
-      return <Award size={16} />;
+      return '📚';
   }
 };
 
-const Certifications = () => {
+const Courses = () => {
   const [selectedProvider, setSelectedProvider] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCertification, setSelectedCertification] = useState<Certification | null>(null);
+  const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
   
-  const filteredCertifications = certificationsData
-    .filter((cert) => {
-      const matchesProvider = selectedProvider === 'All' || cert.provider === selectedProvider;
-      const matchesSearch = cert.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          cert.provider.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          cert.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          cert.skills.some(skill => skill.toLowerCase().includes(searchQuery.toLowerCase()));
+  const filteredCourses = coursesData
+    .filter((course) => {
+      const matchesProvider = selectedProvider === 'All' || course.provider === selectedProvider;
+      const matchesSearch = course.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                          course.provider.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          course.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          course.skills.some(skill => skill.toLowerCase().includes(searchQuery.toLowerCase()));
       return matchesProvider && matchesSearch;
     })
     .sort((a, b) => b.date.getTime() - a.date.getTime());
@@ -69,11 +69,11 @@ const Certifications = () => {
 
   return (
     <>
-      <section className="py-16 md:py-24 bg-gradient-to-b from-primary-50 to-white">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-secondary-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            title="Certificaciones Profesionales"
-            subtitle="Certificaciones oficiales que validan mis competencias técnicas y profesionales"
+            title="Cursos Completados"
+            subtitle="Cursos y formaciones que he completado para desarrollar mis habilidades técnicas y profesionales"
             centered={true}
           />
           
@@ -81,7 +81,7 @@ const Certifications = () => {
             <div className="flex flex-col sm:flex-row gap-6 justify-between">
               <div className="order-2 sm:order-1 overflow-x-auto py-2">
                 <div className="flex space-x-3">
-                  {certificationProviders.map((provider) => (
+                  {providers.map((provider) => (
                     <FilterButton
                       key={provider}
                       active={selectedProvider === provider}
@@ -93,7 +93,7 @@ const Certifications = () => {
               </div>
               <div className="order-1 sm:order-2">
                 <SearchBar 
-                  placeholder="Buscar certificaciones..."
+                  placeholder="Buscar cursos..."
                   onSearch={handleSearch}
                 />
               </div>
@@ -101,37 +101,37 @@ const Certifications = () => {
           </div>
           
           <AnimatePresence>
-            {filteredCertifications.length > 0 ? (
-              <motion.div
-                layout
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-              >
-                {filteredCertifications.map((certification) => (
+            <motion.div
+              layout
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              {filteredCourses.length > 0 ? (
+                filteredCourses.map((course) => (
                   <motion.div
-                    key={certification.id}
+                    key={course.id}
                     layout
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.3 }}
                     className="card group hover:shadow-lg cursor-pointer"
-                    onClick={() => setSelectedCertification(certification)}
+                    onClick={() => setSelectedCourse(course)}
                   >
                     <div className="relative h-48 overflow-hidden">
                       <img
-                        src={certification.imageUrl}
-                        alt={certification.title}
+                        src={course.imageUrl}
+                        alt={course.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
                         <div className="p-4 text-white">
                           <div className="flex items-center gap-2 mb-2">
-                            {getTypeIcon(certification.type)}
-                            <span className="inline-block px-2 py-1 bg-primary-600 rounded-full text-xs font-medium">
-                              {certification.provider}
+                            <span className="text-lg">{getCategoryIcon(course.category)}</span>
+                            <span className="inline-block px-2 py-1 bg-secondary-600 rounded-full text-xs font-medium">
+                              {course.provider}
                             </span>
                           </div>
-                          <h3 className="font-bold text-lg line-clamp-2">{certification.title}</h3>
+                          <h3 className="font-bold text-lg line-clamp-2">{course.title}</h3>
                         </div>
                       </div>
                     </div>
@@ -139,26 +139,24 @@ const Certifications = () => {
                       <div className="flex items-center justify-between text-neutral-600 text-sm mb-3">
                         <div className="flex items-center">
                           <Calendar size={14} className="mr-1" />
-                          <span>{formatDate(certification.date)}</span>
+                          <span>{formatDate(course.date)}</span>
                         </div>
-                        {certification.validUntil && (
-                          <div className="text-xs">
-                            Válido hasta: {formatDate(certification.validUntil)}
-                          </div>
-                        )}
+                        <div className="flex items-center">
+                          <Clock size={14} className="mr-1" />
+                          <span>{course.duration}</span>
+                        </div>
                       </div>
                       
                       <div className="flex items-center gap-2 mb-3">
-                        <span className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-medium ${getTypeColor(certification.type)}`}>
-                          {getTypeIcon(certification.type)}
-                          {certification.type}
+                        <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${getLevelColor(course.level)}`}>
+                          {course.level}
                         </span>
                       </div>
                       
-                      <p className="text-neutral-700 line-clamp-2 mb-3">{certification.description}</p>
+                      <p className="text-neutral-700 line-clamp-2 mb-3">{course.description}</p>
                       
                       <div className="flex flex-wrap gap-2">
-                        {certification.skills.slice(0, 2).map((skill, index) => (
+                        {course.skills.slice(0, 2).map((skill, index) => (
                           <span
                             key={index}
                             className="inline-block px-2 py-1 bg-neutral-100 rounded-full text-xs font-medium text-neutral-700"
@@ -166,64 +164,47 @@ const Certifications = () => {
                             {skill}
                           </span>
                         ))}
-                        {certification.skills.length > 2 && (
+                        {course.skills.length > 2 && (
                           <span className="inline-block px-2 py-1 bg-neutral-100 rounded-full text-xs font-medium text-neutral-700">
-                            +{certification.skills.length - 2} más
+                            +{course.skills.length - 2} más
                           </span>
                         )}
                       </div>
                     </div>
                     <div className="p-4 pt-0 flex justify-end">
-                      {certification.certificateUrl && (
+                      {course.certificateUrl && (
                         <button
-                          onClick={(e) => handleViewCertificate(certification.certificateUrl!, e)}
-                          className="inline-flex items-center text-sm text-primary-600 hover:text-primary-800 font-medium"
+                          onClick={(e) => handleViewCertificate(course.certificateUrl!, e)}
+                          className="inline-flex items-center text-sm text-secondary-600 hover:text-secondary-800 font-medium"
                         >
                           Ver Certificado <ExternalLink size={14} className="ml-1" />
                         </button>
                       )}
                     </div>
                   </motion.div>
-                ))}
-              </motion.div>
-            ) : (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="text-center py-16"
-              >
-                <Award size={64} className="mx-auto text-neutral-400 mb-6" />
-                <h3 className="text-2xl font-semibold text-neutral-700 mb-4">
-                  {searchQuery || selectedProvider !== 'All' 
-                    ? 'No se encontraron certificaciones'
-                    : 'Próximamente: Certificaciones Profesionales'
-                  }
-                </h3>
-                <p className="text-neutral-600 mb-6 max-w-md mx-auto">
-                  {searchQuery || selectedProvider !== 'All'
-                    ? 'No hay certificaciones que coincidan con tus criterios de búsqueda.'
-                    : 'Estoy trabajando para obtener certificaciones profesionales en tecnologías cloud y desarrollo. ¡Mantente atento!'
-                  }
-                </p>
-                {(searchQuery || selectedProvider !== 'All') && (
+                ))
+              ) : (
+                <div className="col-span-full py-12 text-center">
+                  <BookOpen size={48} className="mx-auto text-neutral-400 mb-4" />
+                  <p className="text-neutral-600 text-lg">No se encontraron cursos que coincidan con tus criterios.</p>
                   <button
                     onClick={() => {
                       setSelectedProvider('All');
                       setSearchQuery('');
                     }}
-                    className="text-primary-600 hover:text-primary-800 font-medium"
+                    className="mt-4 text-primary-600 hover:text-primary-800 font-medium"
                   >
                     Limpiar filtros
                   </button>
-                )}
-              </motion.div>
-            )}
+                </div>
+              )}
+            </motion.div>
           </AnimatePresence>
         </div>
       </section>
 
-      {/* Certification Modal */}
-      {selectedCertification && (
+      {/* Course Modal */}
+      {selectedCourse && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -234,8 +215,8 @@ const Certifications = () => {
             <div className="relative">
               <div className="h-64 overflow-hidden rounded-t-xl">
                 <img
-                  src={selectedCertification.imageUrl}
-                  alt={selectedCertification.title}
+                  src={selectedCourse.imageUrl}
+                  alt={selectedCourse.title}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
@@ -243,7 +224,7 @@ const Certifications = () => {
               
               <button
                 className="absolute top-4 right-4 bg-white/90 rounded-full p-2 text-neutral-700 hover:text-neutral-900 transition-colors duration-200"
-                onClick={() => setSelectedCertification(null)}
+                onClick={() => setSelectedCourse(null)}
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -254,41 +235,34 @@ const Certifications = () => {
               <div className="p-6 md:p-8">
                 <div className="mb-6">
                   <div className="flex items-center space-x-3 mb-3">
-                    <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-sm font-medium ${getTypeColor(selectedCertification.type)}`}>
-                      {getTypeIcon(selectedCertification.type)}
-                      {selectedCertification.type}
+                    <span className="text-2xl">{getCategoryIcon(selectedCourse.category)}</span>
+                    <span className="inline-block px-3 py-1 bg-secondary-600 text-white rounded-full text-sm font-medium">
+                      {selectedCourse.provider}
                     </span>
-                    <span className="inline-block px-3 py-1 bg-primary-600 text-white rounded-full text-sm font-medium">
-                      {selectedCertification.provider}
+                    <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${getLevelColor(selectedCourse.level)}`}>
+                      {selectedCourse.level}
                     </span>
                   </div>
                   
-                  <h3 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-4">{selectedCertification.title}</h3>
+                  <h3 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-4">{selectedCourse.title}</h3>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                  <div className="grid grid-cols-2 gap-4 mb-6">
                     <div className="flex items-center text-neutral-600">
                       <Calendar size={16} className="mr-2" />
-                      <span>Obtenido: {formatDate(selectedCertification.date)}</span>
+                      <span>{formatDate(selectedCourse.date)}</span>
                     </div>
-                    {selectedCertification.validUntil && (
-                      <div className="flex items-center text-neutral-600">
-                        <Calendar size={16} className="mr-2" />
-                        <span>Válido hasta: {formatDate(selectedCertification.validUntil)}</span>
-                      </div>
-                    )}
-                    {selectedCertification.credentialId && (
-                      <div className="md:col-span-2 text-neutral-600">
-                        <strong>ID de Credencial:</strong> {selectedCertification.credentialId}
-                      </div>
-                    )}
+                    <div className="flex items-center text-neutral-600">
+                      <Clock size={16} className="mr-2" />
+                      <span>{selectedCourse.duration}</span>
+                    </div>
                   </div>
                   
-                  <p className="text-neutral-700 mb-6">{selectedCertification.description}</p>
+                  <p className="text-neutral-700 mb-6">{selectedCourse.description}</p>
                   
                   <div className="mb-6">
-                    <h4 className="font-semibold text-lg mb-3">Competencias Validadas</h4>
+                    <h4 className="font-semibold text-lg mb-3">Habilidades Adquiridas</h4>
                     <div className="flex flex-wrap gap-2">
-                      {selectedCertification.skills.map((skill, index) => (
+                      {selectedCourse.skills.map((skill, index) => (
                         <span
                           key={index}
                           className="inline-block px-3 py-1.5 bg-neutral-100 rounded-full text-sm font-medium text-neutral-700"
@@ -299,13 +273,13 @@ const Certifications = () => {
                     </div>
                   </div>
                   
-                  {selectedCertification.certificateUrl && (
+                  {selectedCourse.certificateUrl && (
                     <div className="flex justify-center mt-8">
                       <button
-                        onClick={() => handleViewCertificate(selectedCertification.certificateUrl!)}
-                        className="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors duration-200 flex items-center"
+                        onClick={() => handleViewCertificate(selectedCourse.certificateUrl!)}
+                        className="px-6 py-3 bg-secondary-600 hover:bg-secondary-700 text-white font-medium rounded-lg transition-colors duration-200 flex items-center"
                       >
-                        Verificar Certificación <ExternalLink size={16} className="ml-2" />
+                        Ver Certificado Original <ExternalLink size={16} className="ml-2" />
                       </button>
                     </div>
                   )}
@@ -319,4 +293,4 @@ const Certifications = () => {
   );
 };
 
-export default Certifications;
+export default Courses;

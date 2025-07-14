@@ -19,7 +19,7 @@ type Project = {
 type Certification = {
   name: string;
   issuer: string;
-  type: 'curso' | 'diploma' | 'título universitario' | 'certificación profesional';
+  type: 'curso' | 'certificación profesional';
   level: 'básico' | 'intermedio' | 'avanzado';
   date: string;
 };

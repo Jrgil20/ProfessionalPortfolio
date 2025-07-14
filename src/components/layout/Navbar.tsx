@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, GraduationCap, Award, Briefcase, Code, User } from 'lucide-react';
+import { Menu, X, GraduationCap, Award, Briefcase, Code, User, BookOpen } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,6 +32,7 @@ const Navbar = () => {
   const navItems = [
     { name: 'About', path: '/', icon: <User size={18} /> },
     { name: 'Education', path: '/education', icon: <GraduationCap size={18} /> },
+    { name: 'Courses', path: '/courses', icon: <BookOpen size={18} /> },
     { name: 'Certifications', path: '/certifications', icon: <Award size={18} /> },
     { name: 'Projects', path: '/projects', icon: <Briefcase size={18} /> },
     { name: 'Skills', path: '/skills', icon: <Code size={18} /> },
