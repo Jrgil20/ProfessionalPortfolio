@@ -117,25 +117,19 @@ const Courses = () => {
                     className="card group hover:shadow-lg cursor-pointer"
                     onClick={() => setSelectedCourse(course)}
                   >
-                    <div className="relative h-48 overflow-hidden">
-                      <img
-                        src={course.imageUrl}
-                        alt={course.title}
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-                        <div className="p-4 text-white">
-                          <div className="flex items-center gap-2 mb-2">
-                            <span className="text-lg">{getCategoryIcon(course.category)}</span>
-                            <span className="inline-block px-2 py-1 bg-secondary-600 rounded-full text-xs font-medium">
-                              {course.provider}
-                            </span>
-                          </div>
-                          <h3 className="font-bold text-lg line-clamp-2">{course.title}</h3>
-                        </div>
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-4">
+                        <span className="text-2xl">{getCategoryIcon(course.category)}</span>
+                        <span className="inline-block px-3 py-1 bg-secondary-600 text-white rounded-full text-sm font-medium">
+                          {course.provider}
+                        </span>
+                        <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${getLevelColor(course.level)}`}>
+                          {course.level}
+                        </span>
                       </div>
-                    </div>
-                    <div className="p-4">
+                      
+                      <h3 className="font-bold text-xl text-neutral-900 mb-3 line-clamp-2">{course.title}</h3>
+                      
                       <div className="flex items-center justify-between text-neutral-600 text-sm mb-3">
                         <div className="flex items-center">
                           <Calendar size={14} className="mr-1" />
@@ -145,12 +139,6 @@ const Courses = () => {
                           <Clock size={14} className="mr-1" />
                           <span>{course.duration}</span>
                         </div>
-                      </div>
-                      
-                      <div className="flex items-center gap-2 mb-3">
-                        <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${getLevelColor(course.level)}`}>
-                          {course.level}
-                        </span>
                       </div>
                       
                       <p className="text-neutral-700 line-clamp-2 mb-3">{course.description}</p>
@@ -171,7 +159,7 @@ const Courses = () => {
                         )}
                       </div>
                     </div>
-                    <div className="p-4 pt-0 flex justify-end">
+                    <div className="px-6 pb-6 flex justify-end border-t border-neutral-100 pt-4">
                       {course.certificateUrl && (
                         <button
                           onClick={(e) => handleViewCertificate(course.certificateUrl!, e)}
@@ -213,13 +201,19 @@ const Courses = () => {
             className="bg-white rounded-xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto"
           >
             <div className="relative">
-              <div className="h-64 overflow-hidden rounded-t-xl">
-                <img
-                  src={selectedCourse.imageUrl}
-                  alt={selectedCourse.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              <div className="bg-gradient-to-r from-secondary-500 to-secondary-600 p-8 rounded-t-xl">
+                <div className="flex items-center space-x-4 mb-4">
+                  <span className="text-4xl">{getCategoryIcon(selectedCourse.category)}</span>
+                  <div>
+                    <span className="inline-block px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium mr-2">
+                      {selectedCourse.provider}
+                    </span>
+                    <span className="inline-block px-3 py-1 bg-white/20 text-white rounded-full text-sm font-medium">
+                      {selectedCourse.level}
+                    </span>
+                  </div>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold text-white">{selectedCourse.title}</h3>
               </div>
               
               <button
@@ -234,18 +228,6 @@ const Courses = () => {
               
               <div className="p-6 md:p-8">
                 <div className="mb-6">
-                  <div className="flex items-center space-x-3 mb-3">
-                    <span className="text-2xl">{getCategoryIcon(selectedCourse.category)}</span>
-                    <span className="inline-block px-3 py-1 bg-secondary-600 text-white rounded-full text-sm font-medium">
-                      {selectedCourse.provider}
-                    </span>
-                    <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${getLevelColor(selectedCourse.level)}`}>
-                      {selectedCourse.level}
-                    </span>
-                  </div>
-                  
-                  <h3 className="text-2xl md:text-3xl font-bold text-neutral-900 mb-4">{selectedCourse.title}</h3>
-                  
                   <div className="grid grid-cols-2 gap-4 mb-6">
                     <div className="flex items-center text-neutral-600">
                       <Calendar size={16} className="mr-2" />
