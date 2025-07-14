@@ -35,7 +35,6 @@ const Navbar = () => {
     { name: 'Courses', path: '/courses', icon: <BookOpen size={18} /> },
     { name: 'Certifications', path: '/certifications', icon: <Award size={18} /> },
     { name: 'Projects', path: '/projects', icon: <Briefcase size={18} /> },
-    { name: 'Skills', path: '/skills', icon: <Code size={18} /> },
   ];
 
   const navLinkClasses = ({ isActive }: { isActive: boolean }) =>
