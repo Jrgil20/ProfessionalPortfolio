@@ -10,6 +10,7 @@ export type Profile = {
     github?: string;
     twitter?: string;
     website?: string;
+    telegram?: string;
   };
 };
 

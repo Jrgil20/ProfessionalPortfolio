@@ -306,6 +306,13 @@ const Home = () => {
                   >
                     Send Message
                   </button>
+                  <p className="text-xs text-neutral-500 text-center mt-4">
+                    Al enviar este formulario, acepta nuestra{' '}
+                    <Link to="/privacy-policy" className="text-primary-600 hover:text-primary-700 underline">
+                      Política de Privacidad
+                    </Link>
+                    .
+                  </p>
                 </form>
               </motion.div>
             </div>

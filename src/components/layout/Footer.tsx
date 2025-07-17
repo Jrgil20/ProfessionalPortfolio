@@ -70,9 +70,9 @@ const Footer = () => {
         <div className="pt-8 border-t border-neutral-800 text-neutral-500 text-center md:text-left md:flex md:justify-between md:items-center">
           <p>&copy; {currentYear} {profileData.name}. All rights reserved.</p>
           <div className="mt-4 md:mt-0">
-            <a href="#" className="text-neutral-500 hover:text-white mr-4 transition-colors duration-200">
+            <Link to="/privacy-policy" className="text-neutral-500 hover:text-white mr-4 transition-colors duration-200">
               Privacy Policy
-            </a>
+            </Link>
             <a href="#" className="text-neutral-500 hover:text-white transition-colors duration-200">
               Terms of Service
             </a>
