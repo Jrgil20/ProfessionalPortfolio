@@ -23,6 +23,6 @@ export const profileData: Profile = {
   socialLinks: {
     linkedin: "https://www.linkedin.com/in/jesus-r-gil/",
     github: "https://github.com/Jrgil20",
-    telegram: "https://t.me/tu_usuario_telegram"
+    telegram: "https://t.me/jr_gil"
   }
 };
