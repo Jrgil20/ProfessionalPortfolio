@@ -22,6 +22,7 @@ export const profileData: Profile = {
   email: "jesusgil@example.com",
   socialLinks: {
     linkedin: "https://www.linkedin.com/in/jesus-r-gil/",
-    github: "https://github.com/Jrgil20"
+    github: "https://github.com/Jrgil20",
+    telegram: "https://t.me/tu_usuario_telegram"
   }
 };
