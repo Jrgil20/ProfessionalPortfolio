@@ -6,6 +6,7 @@ import Courses from './pages/Courses';
 import Certifications from './pages/Certifications';
 import Projects from './pages/Projects';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 import { AnimatePresence } from 'framer-motion';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="certifications" element={<Certifications />} />
           <Route path="projects" element={<Projects />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="terms-of-service" element={<TermsOfService />} />
         </Route>
       </Routes>
     </AnimatePresence>
