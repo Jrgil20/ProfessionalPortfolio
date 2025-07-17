@@ -123,19 +123,17 @@ const Certifications = () => {
                         alt={certification.title}
                         className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-                        <div className="p-4 text-white">
-                          <div className="flex items-center gap-2 mb-2">
-                            {getTypeIcon(certification.type)}
-                            <span className="inline-block px-2 py-1 bg-primary-600 rounded-full text-xs font-medium">
-                              {certification.provider}
-                            </span>
-                          </div>
-                          <h3 className="font-bold text-lg line-clamp-2">{certification.title}</h3>
-                        </div>
-                      </div>
                     </div>
                     <div className="p-4">
+                      <div className="flex items-center gap-2 mb-3">
+                        {getTypeIcon(certification.type)}
+                        <span className="inline-block px-2 py-1 bg-primary-600 text-white rounded-full text-xs font-medium">
+                          {certification.provider}
+                        </span>
+                      </div>
+                      
+                      <h3 className="font-bold text-lg mb-3 line-clamp-2 text-neutral-900">{certification.title}</h3>
+                      
                       <div className="flex items-center justify-between text-neutral-600 text-sm mb-3">
                         <div className="flex items-center">
                           <Calendar size={14} className="mr-1" />
@@ -238,7 +236,6 @@ const Certifications = () => {
                   alt={selectedCertification.title}
                   className="max-w-full max-h-full object-contain"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               
               <button

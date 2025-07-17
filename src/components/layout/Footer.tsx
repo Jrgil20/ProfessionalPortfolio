@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { Github, Linkedin, Mail, Twitter, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { profileData } from '../../data/profileData';
 
@@ -9,6 +9,7 @@ const Footer = () => {
     { name: 'GitHub', icon: <Github size={20} />, url: profileData.socialLinks.github || '#' },
     { name: 'LinkedIn', icon: <Linkedin size={20} />, url: profileData.socialLinks.linkedin || '#' },
     { name: 'Twitter', icon: <Twitter size={20} />, url: profileData.socialLinks.twitter || '#' },
+    { name: 'Telegram', icon: <Send size={20} />, url: profileData.socialLinks.telegram || '#' },
     { name: 'Email', icon: <Mail size={20} />, url: `mailto:${profileData.email}` },
   ];
 

@@ -19,9 +19,10 @@ export const profileData: Profile = {
   summary: "Computer science student with a strong foundation in backend development. My experience in competitive programming has honed my problem-solving and algorithmic skills. Proficient in Python, Go & C/C++",
   photoUrl: "https://avatars.githubusercontent.com/u/131034722?v=4",
   location: "Caracas, VE",
-  email: "jesusgil@example.com",
+  email: "fariasjesusrodolfo@gmail.com",
   socialLinks: {
     linkedin: "https://www.linkedin.com/in/jesus-r-gil/",
-    github: "https://github.com/Jrgil20"
+    github: "https://github.com/Jrgil20",
+    telegram: "https://t.me/jr_gil"
   }
 };

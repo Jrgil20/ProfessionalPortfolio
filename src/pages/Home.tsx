@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Download, Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { ArrowRight, Download, Github, Linkedin, Mail, Twitter, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { profileData } from '../data/profileData';
 
@@ -9,6 +9,7 @@ const Home = () => {
     { name: 'GitHub', icon: <Github size={24} />, url: profileData.socialLinks.github || '#' },
     { name: 'LinkedIn', icon: <Linkedin size={24} />, url: profileData.socialLinks.linkedin || '#' },
     { name: 'Twitter', icon: <Twitter size={24} />, url: profileData.socialLinks.twitter || '#' },
+    { name: 'Telegram', icon: <Send size={24} />, url: profileData.socialLinks.telegram || '#' },
     { name: 'Email', icon: <Mail size={24} />, url: `mailto:${profileData.email}` },
   ];
 
