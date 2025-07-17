@@ -25,7 +25,7 @@ const SectionHeading = ({ title, subtitle, centered = false }: SectionHeadingPro
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="mt-4 text-lg text-neutral-600 max-w-3xl"
+          className={`mt-4 text-lg text-neutral-600 max-w-3xl ${centered ? 'mx-auto' : ''}`}
         >
           {subtitle}
         </motion.p>
