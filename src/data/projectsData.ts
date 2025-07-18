@@ -26,7 +26,7 @@ export const projectsData: Project[] = [
     title: 'AC_alive',
     description: 'El Juego de la Vida es un autómata celular creado por John Horton Conway en 1970. Es un juego de cero jugadores determinado por el estado inicial.',
     longDescription: 'Proyecto académico de Algoritmo y Programación 1 que implementa el Juego de la Vida de Conway usando matrices para el caldo de cultivo y procedimientos gráficos interactivos. Incluye inicialización, validación de entradas, gestión de archivos, cálculo de vecinas, aplicación de reglas, transición de generaciones y menús de configuración personalizables.',
-    imageUrl: '',
+    imageUrl: 'https://i.imgur.com/gQxbQbP.jpg',
     technologies: [
       { name: 'Pascal', color: '#B0CEFF' }
     ],
@@ -42,6 +42,6 @@ export const projectsData: Project[] = [
       'Opciones de personalización de colores, bordes, rutas y modos de población',
       'Programa principal con flujo de menús, edición del caldo de cultivo y visualización de resultados'
     ],
-    category: 'academic'
+    category: 'Academic'
   }
 ];
