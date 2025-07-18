@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, GraduationCap, Award, Briefcase, Code, User, BookOpen } from 'lucide-react';
+import { useLanguage } from '../../contexts/LanguageContext';
+import LanguageSelector from '../ui/LanguageSelector';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,11 +33,11 @@ const Navbar = () => {
 
   // Nota: Mantenemos las rutas simples, HashRouter se encargará de manejarlas adecuadamente
   const navItems = [
-    { name: 'Inicio', path: '/', icon: <User size={18} /> },
-    { name: 'Educación', path: '/education', icon: <GraduationCap size={18} /> },
-    { name: 'Cursos', path: '/courses', icon: <BookOpen size={18} /> },
-    { name: 'Certificaciones', path: '/certifications', icon: <Award size={18} /> },
-    { name: 'Proyectos', path: '/projects', icon: <Briefcase size={18} /> },
+    { name: t.nav.home, path: '/', icon: <User size={18} /> },
+    { name: t.nav.education, path: '/education', icon: <GraduationCap size={18} /> },
+    { name: t.nav.courses, path: '/courses', icon: <BookOpen size={18} /> },
+    { name: t.nav.certifications, path: '/certifications', icon: <Award size={18} /> },
+    { name: t.nav.projects, path: '/projects', icon: <Briefcase size={18} /> },
   ];
 
   const navLinkClasses = ({ isActive }: { isActive: boolean }) =>
@@ -56,12 +59,12 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           <div className="flex-shrink-0">
             <NavLink to="/" className="font-display font-bold text-2xl text-primary-800">
-              Portfolio
+              {t.nav.portfolio}
             </NavLink>
           </div>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-1">
+          <nav className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
               <NavLink
                 key={item.name}
@@ -72,10 +75,14 @@ const Navbar = () => {
                 {item.name}
               </NavLink>
             ))}
+            <div className="ml-4">
+              <LanguageSelector />
+            </div>
           </nav>
           
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+            <LanguageSelector />
             <button
               type="button"
               className="inline-flex items-center justify-center p-2 rounded-md text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"

@@ -2,8 +2,11 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Download, Github, Linkedin, Mail, Twitter, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { profileData } from '../data/profileData';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Home = () => {
+  const { t, language } = useLanguage();
+
   // Crear arreglo de enlaces sociales basado en el perfil
   const socialLinks = [
     { name: 'GitHub', icon: <Github size={24} />, url: profileData.socialLinks.github || '#' },
@@ -31,28 +34,28 @@ const Home = () => {
                 className="text-center md:text-left"
               >
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-neutral-900">
-                  Hola, soy <span className="text-primary-600">{profileData.name}</span>
+                  {t.home.greeting} <span className="text-primary-600">{profileData.name}</span>
                 </h1>
                 <p className="text-xl md:text-2xl mb-8 text-neutral-700">
-                  {profileData.title}
+                  {profileData.title[language]}
                 </p>
                 <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                   <Link 
                     to="/projects" 
                     className="btn btn-primary flex items-center gap-2"
                   >
-                    Ver Proyectos <ArrowRight size={16} />
+                    {t.home.viewProjects} <ArrowRight size={16} />
                   </Link>
                   <a 
                     href="#" 
                     className="btn btn-outline flex items-center gap-2"
                   >
-                    Descargar CV <Download size={16} />
+                    {t.home.downloadCV} <Download size={16} />
                   </a>
                 </div>
                 
                 <div className="mt-10">
-                  <p className="mb-4 text-neutral-700">Conecta conmigo:</p>
+                  <p className="mb-4 text-neutral-700">{t.home.connectWithMe}</p>
                   <div className="flex space-x-5 justify-center md:justify-start">
                     {socialLinks.map((link) => (
                       <motion.a
@@ -101,7 +104,7 @@ const Home = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl mx-auto text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-neutral-900">Sobre Mí</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-neutral-900">{t.home.aboutMe}</h2>
             <div className="w-24 h-1 bg-primary-500 mx-auto mb-6"></div>
           </motion.div>
           
@@ -112,9 +115,9 @@ const Home = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h3 className="text-2xl font-semibold mb-4 text-neutral-900">Mi Trayectoria</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-neutral-900">{t.home.myJourney}</h3>
               <p className="text-neutral-700">
-                {profileData.summary}
+                {profileData.summary[language]}
               </p>
             </motion.div>
             
@@ -124,24 +127,24 @@ const Home = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h3 className="text-2xl font-semibold mb-4 text-neutral-900">Objetivos Profesionales</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-neutral-900">{t.home.careerObjectives}</h3>
               <ul className="space-y-4">
                 {[
                   {
-                    title: 'Innovar y Resolver',
-                    description: 'Desarrollar soluciones innovadoras que aborden desafíos significativos en tecnología y sociedad.'
+                    title: t.home.objectives.innovate.title,
+                    description: t.home.objectives.innovate.description
                   },
                   {
-                    title: 'Investigación Avanzada en ML',
-                    description: 'Contribuir a investigaciones de vanguardia en aprendizaje automático e inteligencia artificial.'
+                    title: t.home.objectives.research.title,
+                    description: t.home.objectives.research.description
                   },
                   {
-                    title: 'Desarrollo de Productos',
-                    description: 'Crear productos centrados en el usuario que combinen excelencia técnica con diseño intuitivo.'
+                    title: t.home.objectives.development.title,
+                    description: t.home.objectives.development.description
                   },
                   {
-                    title: 'Compartir Conocimiento',
-                    description: 'Mentorizar a otros y compartir conocimiento a través de enseñanza, escritura y contribuciones open-source.'
+                    title: t.home.objectives.sharing.title,
+                    description: t.home.objectives.sharing.description
                   }
                 ].map((item, index) => (
                   <li key={index} className="flex gap-4">
@@ -171,7 +174,7 @@ const Home = () => {
               to="/education" 
               className="btn btn-primary inline-flex items-center gap-2"
             >
-              Ver Mi Formación Académica <ArrowRight size={16} />
+              {t.home.viewEducation} <ArrowRight size={16} />
             </Link>
           </motion.div>
         </div>
@@ -187,9 +190,9 @@ const Home = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl mx-auto text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-neutral-900">Ponte en Contacto</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-neutral-900">{t.home.getInTouch}</h2>
             <p className="text-lg text-neutral-700">
-              No dudes en contactarme para colaboraciones, oportunidades o simplemente para saludar!
+              {t.home.getInTouchDescription}
             </p>
           </motion.div>
           
@@ -202,7 +205,7 @@ const Home = () => {
                 transition={{ duration: 0.5 }}
                 className="p-8 md:p-12 bg-primary-600 text-white"
               >
-                <h3 className="text-2xl font-semibold mb-6">Información de Contacto</h3>
+                <h3 className="text-2xl font-semibold mb-6">{t.home.contactInfo}</h3>
                 <div className="space-y-4">
                   <p className="flex items-center gap-3">
                     <Mail size={20} />
@@ -218,7 +221,7 @@ const Home = () => {
                 </div>
                 
                 <div className="mt-8">
-                  <h4 className="text-xl font-medium mb-4">Perfiles Sociales</h4>
+                  <h4 className="text-xl font-medium mb-4">{t.home.socialProfiles}</h4>
                   <div className="flex space-x-4">
                     {socialLinks.map((link) => (
                       <a
@@ -243,7 +246,7 @@ const Home = () => {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="p-8 md:p-12"
               >
-                <h3 className="text-2xl font-semibold mb-6 text-neutral-900">Enviar un Mensaje</h3>
+                <h3 className="text-2xl font-semibold mb-6 text-neutral-900">{t.home.sendMessage}</h3>
                 <form 
                   action="https://formspree.io/f/xeojygpr" 
                   method="POST" 
@@ -251,7 +254,7 @@ const Home = () => {
                 >
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-1">
-                      Tu Nombre
+                      {t.home.form.name}
                     </label>
                     <input
                       type="text"
@@ -259,12 +262,12 @@ const Home = () => {
                       name="name"
                       required
                       className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
-                      placeholder="Tu nombre"
+                      placeholder={t.home.form.namePlaceholder}
                     />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-1">
-                      Correo Electrónico
+                      {t.home.form.email}
                     </label>
                     <input
                       type="email"
@@ -272,24 +275,24 @@ const Home = () => {
                       name="email"
                       required
                       className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
-                      placeholder="tu.email@ejemplo.com"
+                      placeholder={t.home.form.emailPlaceholder}
                     />
                   </div>
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-neutral-700 mb-1">
-                      Asunto
+                      {t.home.form.subject}
                     </label>
                     <input
                       type="text"
                       id="subject"
                       name="subject"
                       className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
-                      placeholder="¿En qué puedo ayudarte?"
+                      placeholder={t.home.form.subjectPlaceholder}
                     />
                   </div>
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-1">
-                      Mensaje
+                      {t.home.form.message}
                     </label>
                     <textarea
                       id="message"
@@ -297,19 +300,19 @@ const Home = () => {
                       required
                       rows={4}
                       className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none"
-                      placeholder="Tu mensaje aquí..."
+                      placeholder={t.home.form.messagePlaceholder}
                     ></textarea>
                   </div>
                   <button
                     type="submit"
                     className="w-full btn btn-primary"
                   >
-                    Enviar Mensaje
+                    {t.home.form.sendButton}
                   </button>
                   <p className="text-xs text-neutral-500 text-center mt-4">
-                    Al enviar este formulario, acepta nuestra{' '}
+                    {t.home.form.privacyText}{' '}
                     <Link to="/privacy-policy" className="text-primary-600 hover:text-primary-700 underline">
-                      Política de Privacidad
+                      {t.footer.privacyPolicy}
                     </Link>
                     .
                   </p>
