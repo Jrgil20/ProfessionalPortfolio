@@ -16,11 +16,11 @@ const formatDate = (date: Date) => {
 
 const getTypeColor = (type: string) => {
   switch (type) {
-    case 'professional':
+    case 'profesional':
       return 'bg-blue-100 text-blue-800';
-    case 'academic':
+    case 'académica':
       return 'bg-green-100 text-green-800';
-    case 'industry':
+    case 'industria':
       return 'bg-purple-100 text-purple-800';
     default:
       return 'bg-gray-100 text-gray-800';
@@ -29,11 +29,11 @@ const getTypeColor = (type: string) => {
 
 const getTypeIcon = (type: string) => {
   switch (type) {
-    case 'professional':
+    case 'profesional':
       return <Shield size={16} />;
-    case 'academic':
+    case 'académica':
       return <Award size={16} />;
-    case 'industry':
+    case 'industria':
       return <Award size={16} />;
     default:
       return <Award size={16} />;

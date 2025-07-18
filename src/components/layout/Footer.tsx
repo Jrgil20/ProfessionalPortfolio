@@ -20,28 +20,31 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-white">Portfolio</h3>
             <p className="text-neutral-400">
-              Professional portfolio showcasing my education, certifications, projects and skills.
+              Portfolio profesional que muestra mi educación, certificaciones, proyectos y habilidades.
             </p>
           </div>
           
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-white">Quick Links</h3>
+            <h3 className="text-xl font-bold text-white">Enlaces Rápidos</h3>
             <ul className="space-y-2">
-              {['About', 'Education', 'Courses', 'Certifications', 'Projects'].map((item) => (
-                <li key={item}>
-                  <Link
-                    to={item === 'About' ? '/' : `/${item.toLowerCase()}`}
-                    className="text-neutral-400 hover:text-white transition-colors duration-200"
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
+              {['Inicio', 'Educación', 'Cursos', 'Certificaciones', 'Proyectos'].map((item, index) => {
+                const paths = ['/', '/education', '/courses', '/certifications', '/projects'];
+                return (
+                  <li key={item}>
+                    <Link
+                      to={paths[index]}
+                      className="text-neutral-400 hover:text-white transition-colors duration-200"
+                    >
+                      {item}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-white">Contact</h3>
+            <h3 className="text-xl font-bold text-white">Contacto</h3>
             <ul className="space-y-2">
               <li className="text-neutral-400">{profileData.email}</li>
               <li className="text-neutral-400">{profileData.location}</li>
@@ -49,7 +52,7 @@ const Footer = () => {
           </div>
           
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-white">Connect</h3>
+            <h3 className="text-xl font-bold text-white">Conectar</h3>
             <div className="flex space-x-4">
               {socialLinks.map((link) => (
                 <a
@@ -68,13 +71,13 @@ const Footer = () => {
         </div>
         
         <div className="pt-8 border-t border-neutral-800 text-neutral-500 text-center md:text-left md:flex md:justify-between md:items-center">
-          <p>&copy; {currentYear} {profileData.name}. All rights reserved.</p>
+          <p>&copy; {currentYear} {profileData.name}. Todos los derechos reservados.</p>
           <div className="mt-4 md:mt-0">
             <Link to="/privacy-policy" className="text-neutral-500 hover:text-white mr-4 transition-colors duration-200">
-              Privacy Policy
+              Política de Privacidad
             </Link>
             <Link to="/terms-of-service" className="text-neutral-500 hover:text-white transition-colors duration-200">
-              Terms of Service
+              Términos de Servicio
             </Link>
           </div>
         </div>

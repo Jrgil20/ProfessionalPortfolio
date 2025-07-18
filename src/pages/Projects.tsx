@@ -30,8 +30,8 @@ const Projects = () => {
       <section className="py-16 md:py-24 bg-gradient-to-b from-accent-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            title="My Projects"
-            subtitle="A showcase of my academic and personal projects highlighting my skills and interests"
+            title="Mis Proyectos"
+            subtitle="Una muestra de mis proyectos académicos y personales que destacan mis habilidades e intereses"
             centered={true}
           />
           
@@ -51,7 +51,7 @@ const Projects = () => {
               </div>
               <div className="order-1 sm:order-2">
                 <SearchBar 
-                  placeholder="Search projects..."
+                  placeholder="Buscar proyectos..."
                   onSearch={handleSearch}
                 />
               </div>
@@ -151,14 +151,14 @@ const Projects = () => {
                           setSelectedProject(project);
                         }}
                       >
-                        View Details
+                        Ver Detalles
                       </button>
                     </div>
                   </motion.div>
                 ))
               ) : (
                 <div className="col-span-full py-12 text-center">
-                  <p className="text-neutral-600 text-lg">No projects found matching your criteria.</p>
+                  <p className="text-neutral-600 text-lg">No se encontraron proyectos que coincidan con tus criterios.</p>
                   <button
                     onClick={() => {
                       setSelectedCategory('All');
@@ -166,7 +166,7 @@ const Projects = () => {
                     }}
                     className="mt-4 text-primary-600 hover:text-primary-800 font-medium"
                   >
-                    Clear filters
+                    Limpiar filtros
                   </button>
                 </div>
               )}
@@ -223,7 +223,7 @@ const Projects = () => {
                   <p className="text-neutral-700 mb-6">{selectedProject.longDescription}</p>
                   
                   <div className="mb-6">
-                    <h4 className="font-semibold text-lg mb-3">Technologies Used</h4>
+                    <h4 className="font-semibold text-lg mb-3">Tecnologías Utilizadas</h4>
                     <div className="flex flex-wrap gap-2">
                       {selectedProject.technologies.map((tech, index) => (
                         <span
@@ -238,7 +238,7 @@ const Projects = () => {
                   </div>
                   
                   <div className="mb-6">
-                    <h4 className="font-semibold text-lg mb-3">Key Features</h4>
+                    <h4 className="font-semibold text-lg mb-3">Características Principales</h4>
                     <ul className="space-y-2">
                       {selectedProject.features.map((feature, index) => (
                         <li key={index} className="flex items-start gap-2 text-neutral-700">
@@ -257,7 +257,7 @@ const Projects = () => {
                         rel="noopener noreferrer"
                         className="btn btn-accent bg-accent-600 text-white hover:bg-accent-700 focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 inline-flex items-center"
                       >
-                        View Live Demo <ExternalLink size={16} className="ml-2" />
+                        Ver Demo en Vivo <ExternalLink size={16} className="ml-2" />
                       </a>
                     )}
                     {selectedProject.repoUrl && (
@@ -267,7 +267,7 @@ const Projects = () => {
                         rel="noopener noreferrer"
                         className="btn btn-outline inline-flex items-center"
                       >
-                        View Repository <Github size={16} className="ml-2" />
+                        Ver Repositorio <Github size={16} className="ml-2" />
                       </a>
                     )}
                   </div>

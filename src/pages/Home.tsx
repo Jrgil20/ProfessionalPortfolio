@@ -31,7 +31,7 @@ const Home = () => {
                 className="text-center md:text-left"
               >
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-neutral-900">
-                  Hi, I'm <span className="text-primary-600">{profileData.name}</span>
+                  Hola, soy <span className="text-primary-600">{profileData.name}</span>
                 </h1>
                 <p className="text-xl md:text-2xl mb-8 text-neutral-700">
                   {profileData.title}
@@ -41,18 +41,18 @@ const Home = () => {
                     to="/projects" 
                     className="btn btn-primary flex items-center gap-2"
                   >
-                    View Projects <ArrowRight size={16} />
+                    Ver Proyectos <ArrowRight size={16} />
                   </Link>
                   <a 
                     href="#" 
                     className="btn btn-outline flex items-center gap-2"
                   >
-                    Download Resume <Download size={16} />
+                    Descargar CV <Download size={16} />
                   </a>
                 </div>
                 
                 <div className="mt-10">
-                  <p className="mb-4 text-neutral-700">Connect with me:</p>
+                  <p className="mb-4 text-neutral-700">Conecta conmigo:</p>
                   <div className="flex space-x-5 justify-center md:justify-start">
                     {socialLinks.map((link) => (
                       <motion.a
@@ -101,7 +101,7 @@ const Home = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl mx-auto text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-neutral-900">About Me</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-neutral-900">Sobre Mí</h2>
             <div className="w-24 h-1 bg-primary-500 mx-auto mb-6"></div>
           </motion.div>
           
@@ -112,7 +112,7 @@ const Home = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h3 className="text-2xl font-semibold mb-4 text-neutral-900">My Journey</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-neutral-900">Mi Trayectoria</h3>
               <p className="text-neutral-700">
                 {profileData.summary}
               </p>
@@ -124,24 +124,24 @@ const Home = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h3 className="text-2xl font-semibold mb-4 text-neutral-900">Career Objectives</h3>
+              <h3 className="text-2xl font-semibold mb-4 text-neutral-900">Objetivos Profesionales</h3>
               <ul className="space-y-4">
                 {[
                   {
-                    title: 'Innovate & Solve',
-                    description: 'Develop innovative solutions that address significant challenges in technology and society.'
+                    title: 'Innovar y Resolver',
+                    description: 'Desarrollar soluciones innovadoras que aborden desafíos significativos en tecnología y sociedad.'
                   },
                   {
-                    title: 'Advanced ML Research',
-                    description: 'Contribute to cutting-edge research in machine learning and artificial intelligence applications.'
+                    title: 'Investigación Avanzada en ML',
+                    description: 'Contribuir a investigaciones de vanguardia en aprendizaje automático e inteligencia artificial.'
                   },
                   {
-                    title: 'Product Development',
-                    description: 'Build user-centric products that combine technical excellence with intuitive design.'
+                    title: 'Desarrollo de Productos',
+                    description: 'Crear productos centrados en el usuario que combinen excelencia técnica con diseño intuitivo.'
                   },
                   {
-                    title: 'Knowledge Sharing',
-                    description: 'Mentor others and share knowledge through teaching, writing, and open-source contributions.'
+                    title: 'Compartir Conocimiento',
+                    description: 'Mentorizar a otros y compartir conocimiento a través de enseñanza, escritura y contribuciones open-source.'
                   }
                 ].map((item, index) => (
                   <li key={index} className="flex gap-4">
@@ -171,7 +171,7 @@ const Home = () => {
               to="/education" 
               className="btn btn-primary inline-flex items-center gap-2"
             >
-              View My Educational Background <ArrowRight size={16} />
+              Ver Mi Formación Académica <ArrowRight size={16} />
             </Link>
           </motion.div>
         </div>
@@ -187,9 +187,9 @@ const Home = () => {
             transition={{ duration: 0.5 }}
             className="max-w-3xl mx-auto text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-neutral-900">Get In Touch</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-neutral-900">Ponte en Contacto</h2>
             <p className="text-lg text-neutral-700">
-              Feel free to reach out for collaborations, opportunities, or just to say hello!
+              No dudes en contactarme para colaboraciones, oportunidades o simplemente para saludar!
             </p>
           </motion.div>
           
@@ -202,7 +202,7 @@ const Home = () => {
                 transition={{ duration: 0.5 }}
                 className="p-8 md:p-12 bg-primary-600 text-white"
               >
-                <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+                <h3 className="text-2xl font-semibold mb-6">Información de Contacto</h3>
                 <div className="space-y-4">
                   <p className="flex items-center gap-3">
                     <Mail size={20} />
@@ -218,7 +218,7 @@ const Home = () => {
                 </div>
                 
                 <div className="mt-8">
-                  <h4 className="text-xl font-medium mb-4">Social Profiles</h4>
+                  <h4 className="text-xl font-medium mb-4">Perfiles Sociales</h4>
                   <div className="flex space-x-4">
                     {socialLinks.map((link) => (
                       <a
@@ -243,7 +243,7 @@ const Home = () => {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="p-8 md:p-12"
               >
-                <h3 className="text-2xl font-semibold mb-6 text-neutral-900">Send a Message</h3>
+                <h3 className="text-2xl font-semibold mb-6 text-neutral-900">Enviar un Mensaje</h3>
                 <form 
                   action="https://formspree.io/f/xeojygpr" 
                   method="POST" 
@@ -251,7 +251,7 @@ const Home = () => {
                 >
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-1">
-                      Your Name
+                      Tu Nombre
                     </label>
                     <input
                       type="text"
@@ -259,12 +259,12 @@ const Home = () => {
                       name="name"
                       required
                       className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
-                      placeholder="Your name"
+                      placeholder="Tu nombre"
                     />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-1">
-                      Email Address
+                      Correo Electrónico
                     </label>
                     <input
                       type="email"
@@ -272,24 +272,24 @@ const Home = () => {
                       name="email"
                       required
                       className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
-                      placeholder="your.email@example.com"
+                      placeholder="tu.email@ejemplo.com"
                     />
                   </div>
                   <div>
                     <label htmlFor="subject" className="block text-sm font-medium text-neutral-700 mb-1">
-                      Subject
+                      Asunto
                     </label>
                     <input
                       type="text"
                       id="subject"
                       name="subject"
                       className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none"
-                      placeholder="How can I help you?"
+                      placeholder="¿En qué puedo ayudarte?"
                     />
                   </div>
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-1">
-                      Message
+                      Mensaje
                     </label>
                     <textarea
                       id="message"
@@ -297,14 +297,14 @@ const Home = () => {
                       required
                       rows={4}
                       className="w-full px-4 py-2 border border-neutral-300 rounded-md focus:ring-2 focus:ring-primary-500 focus:border-primary-500 outline-none resize-none"
-                      placeholder="Your message here..."
+                      placeholder="Tu mensaje aquí..."
                     ></textarea>
                   </div>
                   <button
                     type="submit"
                     className="w-full btn btn-primary"
                   >
-                    Send Message
+                    Enviar Mensaje
                   </button>
                   <p className="text-xs text-neutral-500 text-center mt-4">
                     Al enviar este formulario, acepta nuestra{' '}

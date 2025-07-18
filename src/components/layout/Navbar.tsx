@@ -30,11 +30,11 @@ const Navbar = () => {
 
   // Nota: Mantenemos las rutas simples, HashRouter se encargará de manejarlas adecuadamente
   const navItems = [
-    { name: 'About', path: '/', icon: <User size={18} /> },
-    { name: 'Education', path: '/education', icon: <GraduationCap size={18} /> },
-    { name: 'Courses', path: '/courses', icon: <BookOpen size={18} /> },
-    { name: 'Certifications', path: '/certifications', icon: <Award size={18} /> },
-    { name: 'Projects', path: '/projects', icon: <Briefcase size={18} /> },
+    { name: 'Inicio', path: '/', icon: <User size={18} /> },
+    { name: 'Educación', path: '/education', icon: <GraduationCap size={18} /> },
+    { name: 'Cursos', path: '/courses', icon: <BookOpen size={18} /> },
+    { name: 'Certificaciones', path: '/certifications', icon: <Award size={18} /> },
+    { name: 'Proyectos', path: '/projects', icon: <Briefcase size={18} /> },
   ];
 
   const navLinkClasses = ({ isActive }: { isActive: boolean }) =>

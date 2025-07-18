@@ -7,7 +7,7 @@ export type Certification = {
   skills: string[];
   imageUrl: string;
   certificateUrl?: string;
-  type: 'professional' | 'academic' | 'industry';
+  type: 'profesional' | 'académica' | 'industria';
   validUntil?: Date;
   credentialId?: string;
 };
@@ -35,7 +35,7 @@ export const certificationsData: Certification[] = [
     skills: ['GitHub', 'Control de Versiones', 'Git', 'Colaboración', 'Repositorios', 'Pull Requests'],
     imageUrl: 'https://images.credly.com/size/340x340/images/024d0122-724d-4c5a-bd83-cfe3c4b7a073/image.png',
     certificateUrl: 'https://www.credly.com/badges/d5bba642-e9df-4598-9ff4-f0d94eddcb06',
-    type: 'professional',
+    type: 'profesional',
     validUntil: new Date('2028-06-29'),
     credentialId: 'd5bba642-e9df-4598-9ff4-f0d94eddcb06'
   }
@@ -49,7 +49,7 @@ export const certificationsData: Certification[] = [
   //   skills: ['AWS', 'Cloud Computing', 'Serverless', 'DynamoDB', 'Lambda'],
   //   imageUrl: '/certificates/aws-developer-associate.png',
   //   certificateUrl: 'https://aws.amazon.com/verification/XXXXXXXXX',
-  //   type: 'professional',
+  //   type: 'profesional',
   //   validUntil: new Date('2027-06-15'),
   //   credentialId: 'AWS-DEV-ASSOC-2024-001'
   // }

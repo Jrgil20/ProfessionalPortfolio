@@ -16,8 +16,8 @@ export type Profile = {
 
 export const profileData: Profile = {
   name: "Jesús Gil",
-  title: "Computer Science Student",
-  summary: "Computer science student with a strong foundation in backend development. My experience in competitive programming has honed my problem-solving and algorithmic skills. Proficient in Python, Go & C/C++",
+  title: "Estudiante de Ingeniería Informática",
+  summary: "Estudiante de ingeniería informática con una sólida base en desarrollo backend. Mi experiencia en programación competitiva ha perfeccionado mis habilidades de resolución de problemas y algorítmica. Competente en Python, Go y C/C++",
   photoUrl: "https://avatars.githubusercontent.com/u/131034722?v=4",
   location: "Caracas, VE",
   email: "fariasjesusrodolfo@gmail.com",
