@@ -3,9 +3,11 @@ import { motion } from 'framer-motion';
 import SectionHeading from '../components/ui/SectionHeading';
 import { educationData, Education as EducationType } from '../data/educationData';
 import { BookOpen, Award, Calendar } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Education = () => {
   const [selectedEducation, setSelectedEducation] = useState<EducationType | null>(null);
+  const { t } = useLanguage();
 
   const timelineVariants = {
     hidden: { opacity: 0 },
@@ -27,8 +29,8 @@ const Education = () => {
       <section className="py-16 md:py-24 bg-gradient-to-b from-primary-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            title="Trayectoria Educativa"
-            subtitle="Mi formación académica y logros que han moldeado mi camino profesional"
+            title={t.education.title}
+            subtitle={t.education.subtitle}
             centered={true}
           />
           
@@ -57,7 +59,7 @@ const Education = () => {
                       <span>{education.startDate} - {education.endDate}</span>
                     </div>
                   </div>
-                  <h4 className="text-lg font-medium mb-3">{education.degree} en {education.field}</h4>
+                  <h4 className="text-lg font-medium mb-3">{education.degree} {t.education.inField} {education.field}</h4>
                   <p className="text-neutral-700 mb-4">{education.description}</p>
                   <div className="flex gap-2">
                     <button
@@ -67,7 +69,7 @@ const Education = () => {
                       }}
                       className="text-sm px-3 py-1 bg-primary-100 text-primary-800 rounded-full hover:bg-primary-200 transition-colors duration-200"
                     >
-                      Ver Detalles
+                      {t.education.viewDetails}
                     </button>
                   </div>
                 </div>
@@ -116,7 +118,7 @@ const Education = () => {
                     <span>{selectedEducation.startDate} - {selectedEducation.endDate}</span>
                   </div>
                   <div className="mb-4">
-                    <h4 className="text-xl font-semibold mb-1">{selectedEducation.degree} en {selectedEducation.field}</h4>
+                    <h4 className="text-xl font-semibold mb-1">{selectedEducation.degree} {t.education.inField} {selectedEducation.field}</h4>
                     <p className="text-neutral-700">{selectedEducation.description}</p>
                   </div>
                 </div>
@@ -125,7 +127,7 @@ const Education = () => {
                   <div>
                     <div className="flex items-center gap-2 mb-3">
                       <Award size={20} className="text-primary-600" />
-                      <h5 className="font-semibold text-lg">Logros</h5>
+                      <h5 className="font-semibold text-lg">{t.education.achievements}</h5>
                     </div>
                     <ul className="space-y-2">
                       {selectedEducation.achievements.map((achievement, index) => (
@@ -140,7 +142,7 @@ const Education = () => {
                   <div>
                     <div className="flex items-center gap-2 mb-3">
                       <BookOpen size={20} className="text-primary-600" />
-                      <h5 className="font-semibold text-lg">Materias Relevantes</h5>
+                      <h5 className="font-semibold text-lg">{t.education.relevantCoursework}</h5>
                     </div>
                     <ul className="space-y-2">
                       {selectedEducation.coursework.map((course, index) => (

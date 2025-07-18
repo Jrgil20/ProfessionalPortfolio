@@ -5,6 +5,7 @@ import SearchBar from '../components/ui/SearchBar';
 import FilterButton from '../components/ui/FilterButton';
 import { certificationsData, certificationProviders, Certification } from '../data/certificationsData';
 import { Calendar, ExternalLink, Award, Shield } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const formatDate = (date: Date) => {
   return new Intl.DateTimeFormat('es-ES', { 
@@ -44,6 +45,7 @@ const Certifications = () => {
   const [selectedProvider, setSelectedProvider] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCertification, setSelectedCertification] = useState<Certification | null>(null);
+  const { t } = useLanguage();
   
   const filteredCertifications = certificationsData
     .filter((cert) => {
@@ -72,8 +74,8 @@ const Certifications = () => {
       <section className="py-16 md:py-24 bg-gradient-to-b from-primary-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            title="Certificaciones Profesionales"
-            subtitle="Certificaciones oficiales que validan mis competencias técnicas y profesionales"
+            title={t.certifications.title}
+            subtitle={t.certifications.subtitle}
             centered={true}
           />
           
@@ -93,7 +95,7 @@ const Certifications = () => {
               </div>
               <div className="order-1 sm:order-2">
                 <SearchBar 
-                  placeholder="Buscar certificaciones..."
+                  placeholder={t.certifications.searchPlaceholder}
                   onSearch={handleSearch}
                 />
               </div>
@@ -141,7 +143,7 @@ const Certifications = () => {
                         </div>
                         {certification.validUntil && (
                           <div className="text-xs">
-                            Válido hasta: {formatDate(certification.validUntil)}
+                            {t.certifications.validUntil} {formatDate(certification.validUntil)}
                           </div>
                         )}
                       </div>
@@ -166,7 +168,7 @@ const Certifications = () => {
                         ))}
                         {certification.skills.length > 2 && (
                           <span className="inline-block px-2 py-1 bg-neutral-100 rounded-full text-xs font-medium text-neutral-700">
-                            +{certification.skills.length - 2} más
+                            +{certification.skills.length - 2} {t.certifications.more}
                           </span>
                         )}
                       </div>
@@ -177,7 +179,7 @@ const Certifications = () => {
                           onClick={(e) => handleViewCertificate(certification.certificateUrl!, e)}
                           className="inline-flex items-center text-sm text-primary-600 hover:text-primary-800 font-medium"
                         >
-                          Ver Certificado <ExternalLink size={14} className="ml-1" />
+                          {t.certifications.viewCertificate} <ExternalLink size={14} className="ml-1" />
                         </button>
                       )}
                     </div>
@@ -193,14 +195,14 @@ const Certifications = () => {
                 <Award size={64} className="mx-auto text-neutral-400 mb-6" />
                 <h3 className="text-2xl font-semibold text-neutral-700 mb-4">
                   {searchQuery || selectedProvider !== 'All' 
-                    ? 'No se encontraron certificaciones'
-                    : 'Próximamente: Certificaciones Profesionales'
+                    ? t.certifications.noCertificationsFound
+                    : t.certifications.upcomingTitle
                   }
                 </h3>
                 <p className="text-neutral-600 mb-6 max-w-md mx-auto">
                   {searchQuery || selectedProvider !== 'All'
-                    ? 'No hay certificaciones que coincidan con tus criterios de búsqueda.'
-                    : 'Estoy trabajando para obtener certificaciones profesionales en tecnologías cloud y desarrollo. ¡Mantente atento!'
+                    ? t.certifications.noCertificationsFound
+                    : t.certifications.upcomingDescription
                   }
                 </p>
                 {(searchQuery || selectedProvider !== 'All') && (
@@ -211,7 +213,7 @@ const Certifications = () => {
                     }}
                     className="text-primary-600 hover:text-primary-800 font-medium"
                   >
-                    Limpiar filtros
+                    {t.certifications.clearFilters}
                   </button>
                 )}
               </motion.div>
@@ -265,17 +267,17 @@ const Certifications = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div className="flex items-center text-neutral-600">
                       <Calendar size={16} className="mr-2" />
-                      <span>Obtenido: {formatDate(selectedCertification.date)}</span>
+                      <span>{t.certifications.obtained} {formatDate(selectedCertification.date)}</span>
                     </div>
                     {selectedCertification.validUntil && (
                       <div className="flex items-center text-neutral-600">
                         <Calendar size={16} className="mr-2" />
-                        <span>Válido hasta: {formatDate(selectedCertification.validUntil)}</span>
+                        <span>{t.certifications.validUntil} {formatDate(selectedCertification.validUntil)}</span>
                       </div>
                     )}
                     {selectedCertification.credentialId && (
                       <div className="md:col-span-2 text-neutral-600">
-                        <strong>ID de Credencial:</strong> {selectedCertification.credentialId}
+                        <strong>{t.certifications.credentialId}</strong> {selectedCertification.credentialId}
                       </div>
                     )}
                   </div>
@@ -283,7 +285,7 @@ const Certifications = () => {
                   <p className="text-neutral-700 mb-6">{selectedCertification.description}</p>
                   
                   <div className="mb-6">
-                    <h4 className="font-semibold text-lg mb-3">Competencias Validadas</h4>
+                    <h4 className="font-semibold text-lg mb-3">{t.certifications.competenciesValidated}</h4>
                     <div className="flex flex-wrap gap-2">
                       {selectedCertification.skills.map((skill, index) => (
                         <span
@@ -302,7 +304,7 @@ const Certifications = () => {
                         onClick={() => handleViewCertificate(selectedCertification.certificateUrl!)}
                         className="px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors duration-200 flex items-center"
                       >
-                        Verificar Certificación <ExternalLink size={16} className="ml-2" />
+                        {t.certifications.verifyCertification} <ExternalLink size={16} className="ml-2" />
                       </button>
                     </div>
                   )}

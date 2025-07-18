@@ -5,11 +5,13 @@ import SearchBar from '../components/ui/SearchBar';
 import FilterButton from '../components/ui/FilterButton';
 import { projectsData, categories, Project } from '../data/projectsData';
 import { Github, ExternalLink, Clock, User } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const { t } = useLanguage();
   
   const filteredProjects = projectsData.filter((project) => {
     const matchesCategory = selectedCategory === 'All' || 
@@ -30,8 +32,8 @@ const Projects = () => {
       <section className="py-16 md:py-24 bg-gradient-to-b from-accent-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            title="Mis Proyectos"
-            subtitle="Una muestra de mis proyectos académicos y personales que destacan mis habilidades e intereses"
+            title={t.projects.title}
+            subtitle={t.projects.subtitle}
             centered={true}
           />
           
@@ -51,7 +53,7 @@ const Projects = () => {
               </div>
               <div className="order-1 sm:order-2">
                 <SearchBar 
-                  placeholder="Buscar proyectos..."
+                  placeholder={t.projects.searchPlaceholder}
                   onSearch={handleSearch}
                 />
               </div>
@@ -151,14 +153,14 @@ const Projects = () => {
                           setSelectedProject(project);
                         }}
                       >
-                        Ver Detalles
+                        {t.projects.viewDetails}
                       </button>
                     </div>
                   </motion.div>
                 ))
               ) : (
                 <div className="col-span-full py-12 text-center">
-                  <p className="text-neutral-600 text-lg">No se encontraron proyectos que coincidan con tus criterios.</p>
+                  <p className="text-neutral-600 text-lg">{t.projects.noProjectsFound}</p>
                   <button
                     onClick={() => {
                       setSelectedCategory('All');
@@ -166,7 +168,7 @@ const Projects = () => {
                     }}
                     className="mt-4 text-primary-600 hover:text-primary-800 font-medium"
                   >
-                    Limpiar filtros
+                    {t.projects.clearFilters}
                   </button>
                 </div>
               )}
@@ -223,7 +225,7 @@ const Projects = () => {
                   <p className="text-neutral-700 mb-6">{selectedProject.longDescription}</p>
                   
                   <div className="mb-6">
-                    <h4 className="font-semibold text-lg mb-3">Tecnologías Utilizadas</h4>
+                    <h4 className="font-semibold text-lg mb-3">{t.projects.technologiesUsed}</h4>
                     <div className="flex flex-wrap gap-2">
                       {selectedProject.technologies.map((tech, index) => (
                         <span
@@ -238,7 +240,7 @@ const Projects = () => {
                   </div>
                   
                   <div className="mb-6">
-                    <h4 className="font-semibold text-lg mb-3">Características Principales</h4>
+                    <h4 className="font-semibold text-lg mb-3">{t.projects.keyFeatures}</h4>
                     <ul className="space-y-2">
                       {selectedProject.features.map((feature, index) => (
                         <li key={index} className="flex items-start gap-2 text-neutral-700">
@@ -257,7 +259,7 @@ const Projects = () => {
                         rel="noopener noreferrer"
                         className="btn btn-accent bg-accent-600 text-white hover:bg-accent-700 focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 inline-flex items-center"
                       >
-                        Ver Demo en Vivo <ExternalLink size={16} className="ml-2" />
+                        {t.projects.viewLiveDemo} <ExternalLink size={16} className="ml-2" />
                       </a>
                     )}
                     {selectedProject.repoUrl && (
@@ -267,7 +269,7 @@ const Projects = () => {
                         rel="noopener noreferrer"
                         className="btn btn-outline inline-flex items-center"
                       >
-                        Ver Repositorio <Github size={16} className="ml-2" />
+                        {t.projects.viewRepository} <Github size={16} className="ml-2" />
                       </a>
                     )}
                   </div>

@@ -1,9 +1,11 @@
 import { Github, Linkedin, Mail, Twitter, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { profileData } from '../../data/profileData';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
   
   const socialLinks = [
     { name: 'GitHub', icon: <Github size={20} />, url: profileData.socialLinks.github || '#' },
@@ -13,38 +15,43 @@ const Footer = () => {
     { name: 'Email', icon: <Mail size={20} />, url: `mailto:${profileData.email}` },
   ];
 
+  const navItems = [
+    { name: t.nav.home, path: '/' },
+    { name: t.nav.education, path: '/education' },
+    { name: t.nav.courses, path: '/courses' },
+    { name: t.nav.certifications, path: '/certifications' },
+    { name: t.nav.projects, path: '/projects' }
+  ];
+
   return (
     <footer className="bg-neutral-900 text-white pt-12 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-8">
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-white">Portfolio</h3>
+            <h3 className="text-xl font-bold text-white">{t.nav.portfolio}</h3>
             <p className="text-neutral-400">
-              Portfolio profesional que muestra mi educación, certificaciones, proyectos y habilidades.
+              {t.footer.description}
             </p>
           </div>
           
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-white">Enlaces Rápidos</h3>
+            <h3 className="text-xl font-bold text-white">{t.footer.quickLinks}</h3>
             <ul className="space-y-2">
-              {['Inicio', 'Educación', 'Cursos', 'Certificaciones', 'Proyectos'].map((item, index) => {
-                const paths = ['/', '/education', '/courses', '/certifications', '/projects'];
-                return (
-                  <li key={item}>
-                    <Link
-                      to={paths[index]}
-                      className="text-neutral-400 hover:text-white transition-colors duration-200"
-                    >
-                      {item}
-                    </Link>
-                  </li>
-                );
-              })}
+              {navItems.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    to={item.path}
+                    className="text-neutral-400 hover:text-white transition-colors duration-200"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-white">Contacto</h3>
+            <h3 className="text-xl font-bold text-white">{t.footer.contact}</h3>
             <ul className="space-y-2">
               <li className="text-neutral-400">{profileData.email}</li>
               <li className="text-neutral-400">{profileData.location}</li>
@@ -52,7 +59,7 @@ const Footer = () => {
           </div>
           
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-white">Conectar</h3>
+            <h3 className="text-xl font-bold text-white">{t.footer.connect}</h3>
             <div className="flex space-x-4">
               {socialLinks.map((link) => (
                 <a
@@ -71,13 +78,13 @@ const Footer = () => {
         </div>
         
         <div className="pt-8 border-t border-neutral-800 text-neutral-500 text-center md:text-left md:flex md:justify-between md:items-center">
-          <p>&copy; {currentYear} {profileData.name}. Todos los derechos reservados.</p>
+          <p>&copy; {currentYear} {profileData.name}. {t.footer.allRightsReserved}</p>
           <div className="mt-4 md:mt-0">
             <Link to="/privacy-policy" className="text-neutral-500 hover:text-white mr-4 transition-colors duration-200">
-              Política de Privacidad
+              {t.footer.privacyPolicy}
             </Link>
             <Link to="/terms-of-service" className="text-neutral-500 hover:text-white transition-colors duration-200">
-              Términos de Servicio
+              {t.footer.termsOfService}
             </Link>
           </div>
         </div>

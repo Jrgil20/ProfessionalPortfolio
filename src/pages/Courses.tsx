@@ -5,6 +5,7 @@ import SearchBar from '../components/ui/SearchBar';
 import FilterButton from '../components/ui/FilterButton';
 import { coursesData, providers, Course } from '../data/coursesData';
 import { Calendar, ExternalLink, Clock, BookOpen } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const formatDate = (date: Date) => {
   return new Intl.DateTimeFormat('es-ES', { 
@@ -44,6 +45,7 @@ const Courses = () => {
   const [selectedProvider, setSelectedProvider] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
+  const { t } = useLanguage();
   
   const filteredCourses = coursesData
     .filter((course) => {
@@ -72,8 +74,8 @@ const Courses = () => {
       <section className="py-16 md:py-24 bg-gradient-to-b from-secondary-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
-            title="Cursos Completados"
-            subtitle="Cursos y formaciones que he completado para desarrollar mis habilidades técnicas y profesionales"
+            title={t.courses.title}
+            subtitle={t.courses.subtitle}
             centered={true}
           />
           
@@ -93,7 +95,7 @@ const Courses = () => {
               </div>
               <div className="order-1 sm:order-2">
                 <SearchBar 
-                  placeholder="Buscar cursos..."
+                  placeholder={t.courses.searchPlaceholder}
                   onSearch={handleSearch}
                 />
               </div>
@@ -154,7 +156,7 @@ const Courses = () => {
                         ))}
                         {course.skills.length > 2 && (
                           <span className="inline-block px-2 py-1 bg-neutral-100 rounded-full text-xs font-medium text-neutral-700">
-                            +{course.skills.length - 2} más
+                            +{course.skills.length - 2} {t.courses.more}
                           </span>
                         )}
                       </div>
@@ -165,7 +167,7 @@ const Courses = () => {
                           onClick={(e) => handleViewCertificate(course.certificateUrl!, e)}
                           className="inline-flex items-center text-sm text-secondary-600 hover:text-secondary-800 font-medium"
                         >
-                          Ver Certificado <ExternalLink size={14} className="ml-1" />
+                          {t.courses.viewCertificate} <ExternalLink size={14} className="ml-1" />
                         </button>
                       )}
                     </div>
@@ -174,7 +176,7 @@ const Courses = () => {
               ) : (
                 <div className="col-span-full py-12 text-center">
                   <BookOpen size={48} className="mx-auto text-neutral-400 mb-4" />
-                  <p className="text-neutral-600 text-lg">No se encontraron cursos que coincidan con tus criterios.</p>
+                  <p className="text-neutral-600 text-lg">{t.courses.noCoursesFound}</p>
                   <button
                     onClick={() => {
                       setSelectedProvider('All');
@@ -182,7 +184,7 @@ const Courses = () => {
                     }}
                     className="mt-4 text-primary-600 hover:text-primary-800 font-medium"
                   >
-                    Limpiar filtros
+                    {t.courses.clearFilters}
                   </button>
                 </div>
               )}
@@ -242,7 +244,7 @@ const Courses = () => {
                   <p className="text-neutral-700 mb-6">{selectedCourse.description}</p>
                   
                   <div className="mb-6">
-                    <h4 className="font-semibold text-lg mb-3">Habilidades Adquiridas</h4>
+                    <h4 className="font-semibold text-lg mb-3">{t.courses.skillsAcquired}</h4>
                     <div className="flex flex-wrap gap-2">
                       {selectedCourse.skills.map((skill, index) => (
                         <span
@@ -261,7 +263,7 @@ const Courses = () => {
                         onClick={() => handleViewCertificate(selectedCourse.certificateUrl!)}
                         className="px-6 py-3 bg-secondary-600 hover:bg-secondary-700 text-white font-medium rounded-lg transition-colors duration-200 flex items-center"
                       >
-                        Ver Certificado Original <ExternalLink size={16} className="ml-2" />
+                        {t.courses.viewOriginalCertificate} <ExternalLink size={16} className="ml-2" />
                       </button>
                     </div>
                   )}
