@@ -42,6 +42,6 @@ export const projectsData: Project[] = [
       'Opciones de personalización de colores, bordes, rutas y modos de población',
       'Programa principal con flujo de menús, edición del caldo de cultivo y visualización de resultados'
     ],
-    category: 'Academic'
+    category: 'academic'
   }
 ];
