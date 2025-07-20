@@ -53,13 +53,13 @@ const Education = () => {
                   onClick={() => setSelectedEducation(education)}
                 >
                   <div className="flex justify-between items-center mb-3">
-                    <h3 className="text-xl font-bold text-primary-800">{education.institution}</h3>
+                    <h3 className="text-xl font-bold text-primary-800">{education.degree} {t.education.inField} {education.field}</h3>
                     <div className="flex items-center text-neutral-600">
                       <Calendar size={16} className="mr-1" />
                       <span>{education.startDate} - {education.endDate}</span>
                     </div>
                   </div>
-                  <h4 className="text-lg font-medium mb-3">{education.degree} {t.education.inField} {education.field}</h4>
+                  <h4 className="text-lg font-medium mb-3">{education.institution}</h4>
                   <p className="text-neutral-700 mb-4">{education.description}</p>
                   <div className="flex gap-2">
                     <button
