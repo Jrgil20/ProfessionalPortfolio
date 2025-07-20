@@ -83,16 +83,14 @@ const Projects = () => {
                         alt={project.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
-                        <div className="p-6 text-white">
-                          <span className="inline-block px-2 py-1 bg-accent-600 rounded-full text-xs font-medium uppercase mb-2">
-                            {project.category}
-                          </span>
-                          <h3 className="font-bold text-xl">{project.title}</h3>
-                        </div>
-                      </div>
                     </div>
                     <div className="p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <h3 className="font-bold text-xl text-neutral-900">{project.title}</h3>
+                        <span className="inline-block px-2 py-1 bg-accent-600 text-white rounded-full text-xs font-medium uppercase">
+                          {project.category}
+                        </span>
+                      </div>
                       <div className="flex items-center justify-between text-neutral-600 text-sm mb-4">
                         <div className="flex items-center">
                           <User size={14} className="mr-1" />
