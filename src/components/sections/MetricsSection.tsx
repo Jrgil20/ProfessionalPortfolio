@@ -25,7 +25,7 @@ const MetricsSection: React.FC = () => {
   };
 
   return (
-    <section id="metrics" className="py-16 md:py-24 bg-slate-100/60 dark:bg-slate-900/40 border-y border-slate-200/80 dark:border-slate-800/80 relative">
+    <section id="metrics" className="scroll-mt-20 md:scroll-mt-24 py-16 md:py-24 bg-slate-100/60 dark:bg-slate-900/40 border-y border-slate-200/80 dark:border-slate-800/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

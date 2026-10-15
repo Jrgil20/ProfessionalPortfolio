@@ -30,7 +30,7 @@ const ProjectsSection: React.FC = () => {
   }, [activeCategory]);
 
   return (
-    <section id="projects" className="py-20 md:py-28 bg-slate-100/60 dark:bg-slate-900/40 border-y border-slate-200/80 dark:border-slate-800/80 relative">
+    <section id="projects" className="scroll-mt-20 md:scroll-mt-24 py-20 md:py-28 bg-slate-100/60 dark:bg-slate-900/40 border-y border-slate-200/80 dark:border-slate-800/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

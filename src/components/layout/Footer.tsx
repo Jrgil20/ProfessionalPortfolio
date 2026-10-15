@@ -3,6 +3,7 @@ import { ArrowUp, Github, Linkedin, Send, Terminal, Clock, Award, GitBranch } fr
 import { Link } from 'react-router-dom';
 import { profileData } from '../../data/portfolioData';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { scrollToSection } from '../../utils/scroll';
 
 const Footer: React.FC = () => {
   const { t, language } = useLanguage();
@@ -20,7 +21,11 @@ const Footer: React.FC = () => {
           <div className="text-center md:text-left">
             <a 
               href="#hero" 
-              className="font-mono font-bold text-lg text-slate-900 dark:text-white hover:text-primary-600 dark:hover:text-cyan-400 transition-colors"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('hero');
+              }}
+              className="font-mono font-bold text-lg text-slate-900 dark:text-white hover:text-primary-600 dark:hover:text-cyan-400 transition-colors cursor-pointer"
             >
               {profileData.name} ({profileData.handle})
             </a>

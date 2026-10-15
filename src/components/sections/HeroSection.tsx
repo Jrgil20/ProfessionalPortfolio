@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { profileData } from '../../data/portfolioData';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { scrollToSection } from '../../utils/scroll';
 
 const HeroSection: React.FC = () => {
   const { t, language } = useLanguage();
@@ -34,7 +35,7 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+    <section id="hero" className="relative scroll-mt-24 pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
       {/* Background ambient decorative glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 md:w-[600px] md:h-[600px] bg-primary-500/10 dark:bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
@@ -71,7 +72,11 @@ const HeroSection: React.FC = () => {
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10">
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-primary-600 hover:bg-primary-700 dark:bg-cyan-500 dark:hover:bg-cyan-600 dark:text-slate-950 shadow-md hover:shadow-lg transition-all duration-200"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('projects');
+                }}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-primary-600 hover:bg-primary-700 dark:bg-cyan-500 dark:hover:bg-cyan-600 dark:text-slate-950 shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer"
               >
                 {t.hero.viewProjects}
                 <ArrowRight size={18} />
@@ -89,7 +94,11 @@ const HeroSection: React.FC = () => {
 
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-medium text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-cyan-400 transition-colors"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection('contact');
+                }}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-medium text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-cyan-400 transition-colors cursor-pointer"
               >
                 <Mail size={18} />
                 {t.hero.contactMe}

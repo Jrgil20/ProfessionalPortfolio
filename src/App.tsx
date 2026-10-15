@@ -16,10 +16,10 @@ function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               {/* Graceful redirections for legacy paths to the single-page experience */}
-              <Route path="education" element={<Navigate to="/#education" replace />} />
-              <Route path="courses" element={<Navigate to="/#education" replace />} />
-              <Route path="certifications" element={<Navigate to="/#education" replace />} />
-              <Route path="projects" element={<Navigate to="/#projects" replace />} />
+              <Route path="education" element={<Navigate to="/" replace />} />
+              <Route path="courses" element={<Navigate to="/" replace />} />
+              <Route path="certifications" element={<Navigate to="/" replace />} />
+              <Route path="projects" element={<Navigate to="/" replace />} />
               <Route path="privacy-policy" element={<PrivacyPolicy />} />
               <Route path="terms-of-service" element={<TermsOfService />} />
               {/* Fallback to Home */}

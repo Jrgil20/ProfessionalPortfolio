@@ -8,7 +8,7 @@ const ExperienceSection: React.FC = () => {
   const { t, language } = useLanguage();
 
   return (
-    <section id="experience" className="py-20 md:py-28 relative">
+    <section id="experience" className="scroll-mt-20 md:scroll-mt-24 py-20 md:py-28 relative">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

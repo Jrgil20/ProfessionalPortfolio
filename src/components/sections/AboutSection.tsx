@@ -39,7 +39,7 @@ const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-20 md:py-28 relative">
+    <section id="about" className="scroll-mt-20 md:scroll-mt-24 py-20 md:py-28 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
