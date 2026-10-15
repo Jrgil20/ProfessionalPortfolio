@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { profileData } from '../../data/portfolioData';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { Cpu, Terminal, Layers, Users, Sparkles, CheckCircle2 } from 'lucide-react';
 
@@ -17,7 +16,7 @@ const AboutSection: React.FC = () => {
     },
     {
       icon: <Layers className="text-blue-400" size={22} />,
-      title: language === 'es' ? "Arquitectura Limpia & Backend Robusto" : "Clean Architecture & Scalable Backend",
+      title: language === 'es' ? "Arquitectura Limpia & Backend" : "Clean Architecture & Scalable Backend",
       desc: language === 'es'
         ? "Diseño modular bajo DDD, separación de capas, E/S asíncrona, bases de datos relacionales avanzadas (PostgreSQL/MySQL) y APIs REST de alto rendimiento."
         : "Modular software under DDD, clean layer separation, async I/O, advanced relational databases (PostgreSQL/MySQL), and high-throughput REST APIs."
@@ -44,7 +43,7 @@ const AboutSection: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-primary-500/10 dark:bg-cyan-500/10 text-primary-600 dark:text-cyan-400 mb-3">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-mono font-semibold bg-primary-500/10 dark:bg-cyan-500/10 text-primary-600 dark:text-cyan-400 mb-3 border border-primary-500/20 dark:border-cyan-500/20">
             <span>ENGINEERING PHILOSOPHY</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-3">
@@ -56,7 +55,7 @@ const AboutSection: React.FC = () => {
         </div>
 
         {/* Narrative & Pillars Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Main Narrative Card */}
           <motion.div
@@ -64,21 +63,29 @@ const AboutSection: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-5 card-engineering p-8 bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-950 border border-slate-200/80 dark:border-slate-800"
+            className="lg:col-span-5 card-engineering p-7 sm:p-8 bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-950 border border-slate-200 dark:border-slate-800"
           >
-            <div className="flex items-center gap-2 mb-6 text-primary-600 dark:text-cyan-400 font-mono text-sm">
+            <div className="flex items-center gap-2 mb-5 text-primary-600 dark:text-cyan-400 font-mono text-sm font-semibold">
               <Sparkles size={18} />
               <span>{language === 'es' ? 'ADN de Ingeniero' : 'Engineering DNA'}</span>
             </div>
 
-            <p className="text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed mb-6 font-normal">
-              {profileData.fullAbout[language]}
+            <p className="text-base sm:text-lg text-slate-800 dark:text-slate-100 leading-relaxed mb-4 font-normal">
+              {language === 'es'
+                ? "Me apasiona tanto entender cómo funciona el software por debajo del capó (memoria dinámica, arquitectura de computadores, impacto de caché y optimización en C/C++/Go/NASM) como llevar productos reales a producción con TypeScript, Node.js, Python, Java y React."
+                : "I enjoy going deep into how systems work under the hood (dynamic memory, computer architecture, cache performance, and C/C++/Go/NASM) while shipping production-ready applications with TypeScript, Node.js, Python, Java, and React."}
+            </p>
+
+            <p className="text-base text-slate-700 dark:text-slate-200 leading-relaxed mb-6 font-normal">
+              {language === 'es'
+                ? "Disfruto construir y liderar en el ecosistema técnico: desde hackathones de IA y Web3 hasta competencias algorítmicas de alto nivel (ICPC / Codeforces), Game Jams y comunidades de desarrolladores."
+                : "I actively build in AI and Web3 hackathons, compete in high-stakes algorithmic contests (ICPC / Codeforces), participate in Game Jams, and lead developer communities."}
             </p>
 
             <div className="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-3">
               <div className="flex items-start gap-3">
                 <CheckCircle2 size={18} className="text-emerald-500 flex-shrink-0 mt-0.5" />
-                <span className="text-sm text-slate-600 dark:text-slate-400">
+                <span className="text-sm font-medium text-slate-700 dark:text-slate-200">
                   {language === 'es' 
                     ? 'Estudiante de Ingeniería Informática (CS) en la UCAB, Caracas.' 
                     : 'Informatics Engineering (CS) student at UCAB, Caracas.'}
@@ -86,7 +93,7 @@ const AboutSection: React.FC = () => {
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle2 size={18} className="text-emerald-500 flex-shrink-0 mt-0.5" />
-                <span className="text-sm text-slate-600 dark:text-slate-400">
+                <span className="text-sm font-medium text-slate-700 dark:text-slate-200">
                   {language === 'es'
                     ? 'Becario de Excelencia Arbitrum en Desarrollo Web3 & Blockchain.'
                     : 'Arbitrum Excellence Scholarship recipient in Web3 & Blockchain development.'}
@@ -94,7 +101,7 @@ const AboutSection: React.FC = () => {
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle2 size={18} className="text-emerald-500 flex-shrink-0 mt-0.5" />
-                <span className="text-sm text-slate-600 dark:text-slate-400">
+                <span className="text-sm font-medium text-slate-700 dark:text-slate-200">
                   {language === 'es'
                     ? 'Certificado oficial GitHub Foundations (Credly verificado).'
                     : 'Official GitHub Foundations Certified (Credly verified).'}
@@ -112,15 +119,15 @@ const AboutSection: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="card-engineering p-6 hover:border-primary-500/40 dark:hover:border-cyan-500/40"
+                className="card-engineering p-6 hover:border-primary-500/50 dark:hover:border-cyan-500/50"
               >
-                <div className="p-3 w-fit rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200/60 dark:border-slate-700/60 mb-4">
+                <div className="p-3 w-fit rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 mb-4">
                   {pillar.icon}
                 </div>
                 <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
                   {pillar.title}
                 </h3>
-                <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-normal">
                   {pillar.desc}
                 </p>
               </motion.div>

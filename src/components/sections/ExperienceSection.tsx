@@ -68,7 +68,7 @@ const ExperienceSection: React.FC = () => {
                   <span>{item.organization}</span>
                 </div>
 
-                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p className="text-sm text-slate-700 dark:text-slate-200 leading-relaxed font-normal">
                   {item.description[language]}
                 </p>
               </div>

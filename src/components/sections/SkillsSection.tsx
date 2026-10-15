@@ -68,7 +68,7 @@ const SkillsSection: React.FC = () => {
                   {category.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="text-xs font-mono px-2.5 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-950/80 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-primary-500/40 dark:hover:border-cyan-500/40 transition-colors"
+                      className="text-xs font-mono font-medium px-2.5 py-1.5 rounded-lg bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700/80 hover:border-primary-500/50 dark:hover:border-cyan-500/50 transition-colors"
                     >
                       {skill}
                     </span>

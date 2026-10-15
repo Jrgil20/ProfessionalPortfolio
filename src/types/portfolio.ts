@@ -20,6 +20,7 @@ export interface Project {
   title: string;
   headline: BilingualText;
   description: BilingualText;
+  highlights?: BilingualText[];
   categories: ProjectCategory[];
   stack: string[];
   repoUrl?: string;

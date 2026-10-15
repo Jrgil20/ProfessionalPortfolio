@@ -54,7 +54,7 @@ const EducationSection: React.FC = () => {
                 </p>
 
                 {edu.scholarshipOrDistinction && (
-                  <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed bg-slate-50 dark:bg-slate-950/50 p-4 rounded-xl border border-slate-200/60 dark:border-slate-800">
+                  <p className="text-sm text-slate-700 dark:text-slate-200 leading-relaxed bg-slate-50 dark:bg-slate-950/70 p-4 rounded-xl border border-slate-200 dark:border-slate-800 font-normal">
                     {edu.scholarshipOrDistinction[language]}
                   </p>
                 )}
@@ -80,7 +80,7 @@ const EducationSection: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, delay: index * 0.05 }}
-                className="card-engineering p-5 flex flex-col justify-between hover:border-cyan-500/40"
+                className="card-engineering p-5 flex flex-col justify-between hover:border-cyan-500/50"
               >
                 <div>
                   <div className="flex items-start justify-between gap-2 mb-2">
@@ -101,14 +101,14 @@ const EducationSection: React.FC = () => {
                     )}
                   </div>
 
-                  <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-3">
+                  <p className="text-xs font-semibold text-slate-600 dark:text-slate-300 mb-3">
                     {cert.issuer}
                   </p>
 
                   {cert.skills && (
-                    <div className="flex flex-wrap gap-1">
+                    <div className="flex flex-wrap gap-1.5">
                       {cert.skills.map((s) => (
-                        <span key={s} className="text-[11px] font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                        <span key={s} className="text-[11px] font-mono font-medium px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700/80">
                           {s}
                         </span>
                       ))}

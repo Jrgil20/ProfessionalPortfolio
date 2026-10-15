@@ -277,9 +277,23 @@ export const projectsData: Project[] = [
       en: "Directed-Graph Algorithmic Engine & Agentic Workflows (BDD/SDD)"
     },
     description: {
-      es: "Motor lógico sobre grafos dirigidos con generación procedimental mediante búsqueda en anchura (BFS) y backtracking recursivo para garantizar caminos hamiltonianos parciales sin bloqueos muertos (deadlocks). Construido bajo Arquitectura Limpia de 4 capas, Domain-Driven Design (DDD), patrón Command y Programación Orientada a Aspectos (AOP), orquestando agentes de IA mediante Specification-Driven y Behavior-Driven Development para mitigar el decaimiento de restricciones (Constraint Decay) en LLMs.",
-      en: "Directed-graph algorithmic engine featuring procedural generation via BFS and recursive backtracking to guarantee deadlock-free paths. Built with 4-layer Clean Architecture, DDD, Command pattern, and Aspect-Oriented Programming (AOP), orchestrating AI coding agents via BDD/SDD (Gherkin) to mitigate LLM Constraint Decay."
+      es: "Motor lógico sobre grafos dirigidos con generación procedimental sin bloqueos muertos (deadlocks).",
+      en: "Directed-graph algorithmic engine featuring procedural generation with guaranteed deadlock-free paths."
     },
+    highlights: [
+      {
+        es: "Algoritmia: Búsqueda en anchura (BFS) y backtracking recursivo para garantizar caminos hamiltonianos parciales.",
+        en: "Algorithms: Breadth-First Search (BFS) and recursive backtracking to guarantee partial Hamiltonian paths."
+      },
+      {
+        es: "Arquitectura: Clean Architecture de 4 capas, Domain-Driven Design (DDD), patrón Command y AOP.",
+        en: "Architecture: 4-layer Clean Architecture, Domain-Driven Design (DDD), Command pattern, and AOP."
+      },
+      {
+        es: "Orquestación IA: Agentes guiados por BDD/SDD (Gherkin) para mitigar el decaimiento de restricciones (Constraint Decay).",
+        en: "AI Orchestration: BDD/SDD (Gherkin) workflows orchestrating AI coding agents to mitigate Constraint Decay."
+      }
+    ],
     categories: ["ai-agents", "systems-algorithms", "backend-fullstack"],
     stack: [
       "Clean Architecture (4 capas)",
@@ -299,9 +313,23 @@ export const projectsData: Project[] = [
       en: "dApp for Tech Events & AI Matchmaking (Top 27 LATAM)"
     },
     description: {
-      es: "Aplicación descentralizada (dApp) creada para transformar el networking entre desarrolladores en eventos tecnológicos, hackathones y comunidades. Combina registros verificables on-chain en Solana, emparejamiento inteligente asistido por IA, privacidad híbrida e incentivos nativos. Posicionada en el Top 27 de LATAM en el Dev3pack Global Hackathon (2026).",
-      en: "Decentralized application (dApp) designed to enhance developer networking at tech events and hackathons, combining on-chain check-ins on Solana, AI-powered matchmaking, hybrid privacy, and native incentives. Ranked Top 27 in LATAM at the Dev3pack Global Hackathon (2026)."
+      es: "Aplicación descentralizada (dApp) para transformar el networking de desarrolladores en eventos tecnológicos.",
+      en: "Decentralized application (dApp) designed to enhance developer networking at tech events and hackathons."
     },
+    highlights: [
+      {
+        es: "Web3 On-Chain: Registros de asistencia e interacciones verificables sobre la red Solana.",
+        en: "Web3 On-Chain: Verifiable check-ins and credential records on Solana blockchain."
+      },
+      {
+        es: "Emparejamiento IA: Algoritmo de matchmaking inteligente según perfiles técnicos, roles e intereses.",
+        en: "AI Matchmaking: Intelligent AI matchmaking based on engineering stacks and interests."
+      },
+      {
+        es: "Logro Competitivo: Posicionada en el Top 27 de toda Latinoamérica en el Dev3pack Global Hackathon (2026).",
+        en: "Hackathon Standing: Ranked in the Top 27 across Latin America at Dev3pack Global Hackathon (2026)."
+      }
+    ],
     categories: ["web3", "ai-agents", "backend-fullstack"],
     stack: [
       "TypeScript",
@@ -329,9 +357,23 @@ export const projectsData: Project[] = [
       en: "Decentralized Project Management Platform"
     },
     description: {
-      es: "Plataforma Web3 con control de acceso basado en roles (Cliente y Desarrollador) sobre Avalanche Fuji Testnet. Permite estructurar proyectos, definir hitos con presupuestos en AVAX y gestionar la entrega y validación transparente de avances mediante contratos inteligentes e integración con MetaMask.",
-      en: "Role-based Web3 project management platform on Avalanche Fuji Testnet enabling clients and developers to structure milestones, lock budgets in AVAX, and validate deliverables via smart contracts."
+      es: "Plataforma Web3 con control de acceso por roles y pagos en custodia sobre Avalanche Fuji Testnet.",
+      en: "Role-based Web3 project management platform with escrow payments on Avalanche Fuji Testnet."
     },
+    highlights: [
+      {
+        es: "Control de Acceso: Flujos diferenciados para Cliente y Desarrollador con integración nativa de MetaMask.",
+        en: "Access Control: Role-based workflows (Client and Developer) with MetaMask wallet authentication."
+      },
+      {
+        es: "Contratos Inteligentes: Bloqueo de presupuesto en AVAX y liberación transparente tras validación de hitos.",
+        en: "Smart Contracts: Budget locking in AVAX and transparent deliverable verification via Solidity."
+      },
+      {
+        es: "Ecosistema: Desarrollada con TypeScript, React 18, Ethers.js, Solidity y Tailwind CSS.",
+        en: "Ecosystem: Built with TypeScript, React 18, Ethers.js, Solidity, and Tailwind CSS."
+      }
+    ],
     categories: ["web3", "backend-fullstack"],
     stack: [
       "TypeScript",
@@ -351,9 +393,23 @@ export const projectsData: Project[] = [
       en: "Customer Feedback Automation & SLA Detection (1st Place)"
     },
     description: {
-      es: "Agente inteligente de procesamiento de lenguaje natural (NLP) que automatizó el análisis masivo de feedback de clientes, detectando patrones críticos y validando incumplimientos de SLA en tiempo real para respaldar la toma de decisiones operativas. Proyecto ganador del 1.er lugar en el SolucionaLab Hackathon (2025).",
-      en: "Intelligent NLP agent built with Azure AI Foundry and Python that automated customer feedback analysis, detecting critical patterns and validating SLA violations in real time to support operational decision-making. 1st Place winner at SolucionaLab Hackathon (2025)."
+      es: "Agente inteligente NLP para análisis masivo de feedback de clientes y control de SLAs en tiempo real.",
+      en: "Intelligent NLP agent automating customer feedback analysis and real-time SLA breach detection."
     },
+    highlights: [
+      {
+        es: "Reconocimiento: Ganador del 1.er lugar en el SolucionaLab Hackathon (Mercantil Seguros, 2025).",
+        en: "Recognition: 1st Place winner at SolucionaLab National Hackathon (Mercantil Seguros, 2025)."
+      },
+      {
+        es: "IA & NLP: Orquestación mediante Azure AI Foundry, modelos LLM e ingeniería de prompts avanzada.",
+        en: "AI & NLP: Orchestration using Azure AI Foundry, LLM models, and advanced prompt engineering."
+      },
+      {
+        es: "Toma de Decisiones: Detección de patrones críticos y validación automática de incumplimientos operativos.",
+        en: "Decision Support: Real-time critical pattern detection and automated operational SLA alerts."
+      }
+    ],
     categories: ["ai-agents", "backend-fullstack"],
     stack: [
       "Python",
@@ -379,9 +435,23 @@ export const projectsData: Project[] = [
       en: "University Grade Tracking & Target Score Projection"
     },
     description: {
-      es: "Aplicación web utilizada por estudiantes universitarios (4★ en GitHub) para gestionar sus calificaciones, calcular promedios ponderados y proyectar las notas necesarias en evaluaciones pendientes para aprobar cada materia.",
-      en: "Web application used by university students (4★ on GitHub) to track grades, compute weighted averages, and calculate exact target scores needed on remaining evaluations."
+      es: "Aplicación web utilizada por estudiantes universitarios (4★ en GitHub) para proyectar su rendimiento.",
+      en: "Web application used by university students (4★ on GitHub) to track and project academic grades."
     },
+    highlights: [
+      {
+        es: "Comunidad Activa: Utilizada activamente por estudiantes universitarios con 4★ en GitHub.",
+        en: "Active Community: Actively used by undergraduate engineering students with 4★ on GitHub."
+      },
+      {
+        es: "Algoritmos Ponderados: Cálculo de promedios ponderados y notas mínimas para aprobar cada materia.",
+        en: "Weighted Algorithms: Accurate calculation of weighted averages and minimum passing scores."
+      },
+      {
+        es: "Despliegue Ligero: Construido con TypeScript, HTML5, CSS3 moderno y GitHub Pages.",
+        en: "Lightweight Architecture: Built with TypeScript, modern HTML5, CSS3, and GitHub Pages."
+      }
+    ],
     categories: ["backend-fullstack"],
     stack: [
       "TypeScript",
@@ -401,9 +471,19 @@ export const projectsData: Project[] = [
       en: "Full-Stack Cinema & Ticket Purchasing Platform"
     },
     description: {
-      es: "Plataforma web full-stack para consulta de cartelera activa, sincronización de horarios y compra virtual de boletos mediante flujos de trabajo impulsados por APIs REST y comunicación asíncrona (3★ en GitHub).",
-      en: "Full-stack cinema web platform for movie listings, schedule synchronization, and virtual ticket purchasing powered by RESTful APIs and asynchronous workflows (3★ on GitHub)."
+      es: "Plataforma web full-stack para cartelera activa, sincronización de horarios y venta de boletos (3★).",
+      en: "Full-stack cinema web platform for live movie listings, schedule synchronization, and virtual ticketing (3★)."
     },
+    highlights: [
+      {
+        es: "Arquitectura Backend: API RESTful en Node.js y Express con comunicación asíncrona.",
+        en: "Backend Architecture: RESTful API powered by Node.js and Express with async workflows."
+      },
+      {
+        es: "Sincronización en Vivo: Cartelera actualizada, consulta de salas y reserva interactiva de entradas.",
+        en: "Live Synchronization: Active billboard queries, room scheduling, and interactive booking."
+      }
+    ],
     categories: ["backend-fullstack"],
     stack: [
       "Node.js",
@@ -424,9 +504,19 @@ export const projectsData: Project[] = [
       en: "Interactive Network Security Lab"
     },
     description: {
-      es: "Repositorio interactivo y educativo (8★ en GitHub) desarrollado como Facilitador Universitario del microcurso 'Seguridad en Redes' en la UCAB, con laboratorios prácticos sobre análisis web, ataques a contraseñas, endurecimiento de dispositivos y protección de redes.",
-      en: "Interactive educational repository (8★ on GitHub) created as University Facilitator for the 'Network Security' micro-course at UCAB, covering web analysis, password security, device hardening, and network protection."
+      es: "Repositorio educativo interactivo (8★ en GitHub) para entrenamiento práctico en seguridad.",
+      en: "Interactive educational repository (8★ on GitHub) for hands-on network defense training."
     },
+    highlights: [
+      {
+        es: "Docencia Universitaria: Desarrollado como Facilitador del microcurso 'Seguridad en Redes' en la UCAB.",
+        en: "University Facilitation: Developed as instructor for the 'Network Security' micro-course at UCAB."
+      },
+      {
+        es: "Módulos de Práctica: Análisis de vulnerabilidades web, ataques a contraseñas y hardening de dispositivos.",
+        en: "Practical Modules: Web vulnerability auditing, password security, and system hardening."
+      }
+    ],
     categories: ["cybersecurity"],
     stack: [
       "JavaScript",
@@ -447,9 +537,19 @@ export const projectsData: Project[] = [
       en: "Modular Human Capital Management System"
     },
     description: {
-      es: "Aplicación modular de escritorio para la gestión integral de empleados, contratos, turnos, cálculo de nómina, bonificaciones y deducciones aplicando persistencia relacional en MySQL y principios de programación orientada a objetos.",
-      en: "Modular Java desktop application for managing employees, contracts, shifts, payroll calculation, bonuses, and deductions using MySQL relational persistence and OOP design principles."
+      es: "Aplicación modular de escritorio para gestión de personal, contratos, turnos y nómina empresarial.",
+      en: "Modular desktop application for complete employee, contract, shift, and payroll administration."
     },
+    highlights: [
+      {
+        es: "Persistencia Relacional: Modelo relacional completo en MySQL mediante conectividad JDBC.",
+        en: "Relational Persistence: Complete relational data model in MySQL via JDBC connectivity."
+      },
+      {
+        es: "Principios POO: Arquitectura modular orientada a objetos en Java y JavaFX para cálculo salarial.",
+        en: "OOP Architecture: Modular object-oriented design in Java and JavaFX for salary and bonus calculation."
+      }
+    ],
     categories: ["backend-fullstack"],
     stack: [
       "Java",
@@ -474,9 +574,19 @@ export const projectsData: Project[] = [
       en: "C Engine with Dynamic Memory & PostgreSQL Schema (SBD_G9)"
     },
     description: {
-      es: "Motor de procesamiento académico en lenguaje C (cursos, inscripciones, calificaciones y reportes) implementado desde cero con estructuras de memoria dinámica y persistencia en archivos, complementado con el diseño de esquemas relacionales avanzados, triggers, secuencias y funciones en PL/pgSQL (SBD_G9).",
-      en: "Academic data processing engine in C built from scratch using dynamic linked lists and file persistence, paired with advanced relational database schemas, triggers, sequences, and functions in PL/pgSQL (SBD_G9)."
+      es: "Motor de procesamiento académico en lenguaje C acoplado con base de datos relacional avanzada en PostgreSQL.",
+      en: "Academic data processing engine in C paired with an advanced relational PostgreSQL database."
     },
+    highlights: [
+      {
+        es: "Sistemas & Memoria: Estructuras dinámicas (listas enlazadas) en C con gestión manual de memoria y archivos.",
+        en: "Systems & Memory: Dynamic data structures in C with manual pointer management and file I/O."
+      },
+      {
+        es: "SQL Avanzado: Diseño de esquemas relacionales, triggers, secuencias y funciones en PL/pgSQL (SBD_G9).",
+        en: "Advanced SQL: Relational schemas, triggers, sequences, and stored functions in PL/pgSQL (SBD_G9)."
+      }
+    ],
     categories: ["systems-algorithms", "backend-fullstack"],
     stack: [
       "C",

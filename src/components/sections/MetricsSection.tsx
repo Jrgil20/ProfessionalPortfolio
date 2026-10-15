@@ -75,11 +75,11 @@ const MetricsSection: React.FC = () => {
                     {metric.value}
                   </div>
 
-                  <h3 className="text-base font-semibold text-slate-800 dark:text-slate-200 mb-2">
+                  <h3 className="text-base font-bold text-slate-900 dark:text-white mb-2">
                     {metric.label[language]}
                   </h3>
 
-                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  <p className="text-sm font-normal text-slate-700 dark:text-slate-300 leading-relaxed">
                     {metric.description[language]}
                   </p>
                 </div>
