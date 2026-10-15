@@ -1,4 +1,5 @@
 import { Language } from '../types/i18n';
+import { profileData as centralProfile } from './portfolioData';
 
 export type Profile = {
   name: string;
@@ -17,21 +18,15 @@ export type Profile = {
 };
 
 export const profileData: Profile = {
-  name: "Jesús Gil",
-  title: {
-    es: "Estudiante de Ingeniería Informática",
-    en: "Computer Science Student"
-  },
-  summary: {
-    es: "Estudiante de ingeniería informática con una sólida base en desarrollo backend. Mi experiencia en programación competitiva ha perfeccionado mis habilidades de resolución de problemas y algorítmica. Competente en Python, Go y C/C++",
-    en: "Computer science student with a strong foundation in backend development. My experience in competitive programming has honed my problem-solving and algorithmic skills. Proficient in Python, Go & C/C++"
-  },
-  photoUrl: "https://avatars.githubusercontent.com/u/131034722?v=4",
-  location: "Caracas, VE",
-  email: "fariasjesusrodolfo@gmail.com",
+  name: centralProfile.name,
+  title: centralProfile.headline,
+  summary: centralProfile.fullAbout,
+  photoUrl: centralProfile.photoUrl,
+  location: "Caracas, Venezuela",
+  email: centralProfile.email,
   socialLinks: {
     linkedin: "https://www.linkedin.com/in/jesus-r-gil/",
     github: "https://github.com/Jrgil20",
-    telegram: "https://t.me/jr_gil"
+    telegram: "https://t.me/Jr_Gil"
   }
 };

@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "sync": "node src/services/sync.js",
-    "predeploy": "npm run build",
+    "predeploy": "pnpm run build",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {

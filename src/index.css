@@ -8,97 +8,49 @@
   }
   
   body {
-    @apply bg-neutral-50 text-neutral-800 font-sans;
+    @apply bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased transition-colors duration-300;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-sans font-bold text-neutral-900;
+    @apply font-sans font-bold text-slate-900 dark:text-white tracking-tight;
   }
 
-  h1 {
-    @apply text-4xl md:text-5xl;
-  }
-  
-  h2 {
-    @apply text-3xl md:text-4xl;
-  }
-  
-  h3 {
-    @apply text-2xl md:text-3xl;
-  }
-  
-  h4 {
-    @apply text-xl md:text-2xl;
-  }
-  
   p {
-    @apply text-base leading-relaxed;
+    @apply text-base leading-relaxed text-slate-600 dark:text-slate-300;
+  }
+
+  ::selection {
+    @apply bg-primary-500/20 text-primary-900 dark:bg-cyan-500/30 dark:text-cyan-200;
   }
 }
 
 @layer components {
   .section-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
   }
-  
-  .section-title {
-    @apply text-3xl md:text-4xl font-bold text-neutral-900 mb-6 md:mb-10;
+
+  .card-engineering {
+    @apply bg-white dark:bg-slate-900/80 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300;
   }
-  
-  .section-subtitle {
-    @apply text-xl md:text-2xl font-semibold text-neutral-800 mb-4;
+
+  .badge-tech {
+    @apply text-xs font-mono px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/60 transition-colors;
   }
-  
-  .card {
-    @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300;
-  }
-  
-  .btn {
-    @apply px-4 py-2 rounded-md font-medium transition-all duration-200;
-  }
-  
-  .btn-primary {
-    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
-  }
-  
-  .btn-secondary {
-    @apply bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2;
-  }
-  
-  .btn-outline {
-    @apply border border-neutral-300 hover:bg-neutral-100 focus:ring-2 focus:ring-neutral-500 focus:ring-offset-2;
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 via-primary-500 to-cyan-500 dark:from-cyan-400 dark:via-blue-400 dark:to-indigo-300;
   }
 }
 
-/* Timeline styles */
-.timeline-container {
-  @apply relative pl-8 border-l-2 border-primary-300;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-.timeline-dot {
-  @apply absolute -left-[9px] w-4 h-4 rounded-full bg-primary-500;
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-/* Certificate styles */
-.certificate-grid {
-  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
-}
-
-/* Animations */
-.fade-in {
-  animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.slide-up {
-  animation: slideUp 0.5s ease-out;
-}
-
-@keyframes slideUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-800 rounded-full hover:bg-slate-400 dark:hover:bg-slate-700 transition-colors;
 }

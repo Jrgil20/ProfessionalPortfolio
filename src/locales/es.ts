@@ -3,125 +3,97 @@ import { Translations } from '../types/i18n';
 export const es: Translations = {
   nav: {
     home: 'Inicio',
-    education: 'Educación',
-    courses: 'Cursos',
-    certifications: 'Certificaciones',
+    metrics: 'Métricas',
+    about: 'Sobre Mí',
     projects: 'Proyectos',
-    portfolio: 'Portfolio'
+    experience: 'Experiencia & Liderazgo',
+    skills: 'Habilidades',
+    education: 'Educación & Certificaciones',
+    contact: 'Contacto',
+    portfolio: 'Jesús Gil'
   },
-  
-  home: {
+  hero: {
     greeting: 'Hola, soy',
-    viewProjects: 'Ver Proyectos',
-    downloadCV: 'Descargar CV',
-    connectWithMe: 'Conecta conmigo:',
-    aboutMe: 'Sobre Mí',
-    myJourney: 'Mi Trayectoria',
-    careerObjectives: 'Objetivos Profesionales',
-    objectives: {
-      innovate: {
-        title: 'Innovar y Resolver',
-        description: 'Desarrollar soluciones innovadoras que aborden desafíos significativos en tecnología y sociedad.'
-      },
-      research: {
-        title: 'Investigación Avanzada en ML',
-        description: 'Contribuir a investigaciones de vanguardia en aprendizaje automático e inteligencia artificial.'
-      },
-      development: {
-        title: 'Desarrollo de Productos',
-        description: 'Crear productos centrados en el usuario que combinen excelencia técnica con diseño intuitivo.'
-      },
-      sharing: {
-        title: 'Compartir Conocimiento',
-        description: 'Mentorizar a otros y compartir conocimiento a través de enseñanza, escritura y contribuciones open-source.'
-      }
-    },
-    viewEducation: 'Ver Mi Formación Académica',
-    getInTouch: 'Ponte en Contacto',
-    getInTouchDescription: 'No dudes en contactarme para colaboraciones, oportunidades o simplemente para saludar!',
+    viewProjects: 'Explorar Proyectos',
+    downloadCV: 'Ver / Descargar CV',
+    contactMe: 'Contactar',
+    statusAvailable: 'Disponible Presencial/Híbrido en Caracas o 100% Remoto',
+    verifiedStats: 'Métricas Verificables'
+  },
+  sections: {
+    metricsTitle: 'Métricas de Impacto',
+    metricsSubtitle: 'Rendimiento, actividad algorítmica y contribuciones verificables en tiempo real',
+    aboutTitle: 'Sobre Mí',
+    aboutSubtitle: 'Ingeniería desde primeros principios, sistemas de alto rendimiento y arquitectura limpia',
+    projectsTitle: 'Proyectos Destacados',
+    projectsSubtitle: 'Sistemas en producción, motores algorítmicos, dApps y agentes de IA',
+    experienceTitle: 'Experiencia, Liderazgo & Logros',
+    experienceSubtitle: 'Liderazgo en comunidades tech, competencias ICPC y victorias en hackathones',
+    skillsTitle: 'Stack Tecnológico & Habilidades',
+    skillsSubtitle: 'Dominio por capas: desde el hardware y sistemas de bajo nivel hasta arquitecturas distribuidas e IA',
+    educationTitle: 'Educación Superior & Becas',
+    educationSubtitle: 'Formación académica rigurosa y becas de excelencia tecnológica',
+    certificationsTitle: 'Certificaciones Profesionales & Idiomas',
+    languagesTitle: 'Idiomas',
+    contactTitle: 'Contacto & Redes',
+    contactSubtitle: 'Conectemos para oportunidades profesionales, proyectos de ingeniería o hackathones'
+  },
+  projectsFilter: {
+    all: 'Todos',
+    aiAgents: 'IA & Agentes',
+    backendFullstack: 'Backend & Full-Stack',
+    web3: 'Web3',
+    systemsAlgorithms: 'Sistemas & Algoritmos',
+    cybersecurity: 'Ciberseguridad'
+  },
+  badges: {
+    hackathonWinner: '1.er Lugar Hackathon',
+    topLatam: 'Top 27 LATAM',
+    privateRepo: 'Código Privado / Hackathon',
+    verifiedCredential: 'Credencial Verificada'
+  },
+  buttons: {
+    viewLiveDemo: 'Demo en Vivo',
+    viewRepository: 'Repositorio',
+    verifyCredential: 'Verificar en Credly',
+    sendMessage: 'Enviar Mensaje',
+    downloadCV: 'Descargar CV (Drive)',
+    sourceMetric: 'Verificar Fuente'
+  },
+  contact: {
+    getInTouch: 'Iniciemos una Conversación',
+    getInTouchDescription: 'Disponible para roles de Software Engineer (Backend, Full-Stack, Sistemas e IA) o proyectos de alto impacto.',
     contactInfo: 'Información de Contacto',
-    socialProfiles: 'Perfiles Sociales',
-    sendMessage: 'Enviar un Mensaje',
+    socialProfiles: 'Canales & Redes Verificadas',
+    location: 'Caracas, Venezuela',
+    availability: 'Presencial / Híbrido en Caracas o Remoto Global',
     form: {
       name: 'Tu Nombre',
       email: 'Correo Electrónico',
-      subject: 'Asunto',
+      subject: 'Asunto / Motivo',
       message: 'Mensaje',
-      namePlaceholder: 'Tu nombre',
-      emailPlaceholder: 'tu.email@ejemplo.com',
-      subjectPlaceholder: '¿En qué puedo ayudarte?',
-      messagePlaceholder: 'Tu mensaje aquí...',
+      namePlaceholder: 'Nombre y apellido o empresa',
+      emailPlaceholder: 'correo@ejemplo.com',
+      subjectPlaceholder: 'Oportunidad laboral, proyecto o colaboración...',
+      messagePlaceholder: 'Contame sobre el proyecto, rol o idea...',
       sendButton: 'Enviar Mensaje',
-      privacyText: 'Al enviar este formulario, acepta nuestra'
+      sendingButton: 'Enviando...',
+      successMessage: '¡Mensaje enviado con éxito! Te responderé a la brevedad.',
+      privacyText: 'Tus datos solo se usarán para responder a tu mensaje.'
     }
   },
-  
-  projects: {
-    title: 'Mis Proyectos',
-    subtitle: 'Una muestra de mis proyectos académicos y personales que destacan mis habilidades e intereses',
-    searchPlaceholder: 'Buscar proyectos...',
-    viewDetails: 'Ver Detalles',
-    noProjectsFound: 'No se encontraron proyectos que coincidan con tus criterios.',
-    clearFilters: 'Limpiar filtros',
-    technologiesUsed: 'Tecnologías Utilizadas',
-    keyFeatures: 'Características Principales',
-    viewLiveDemo: 'Ver Demo en Vivo',
-    viewRepository: 'Ver Repositorio'
-  },
-  
-  education: {
-    title: 'Trayectoria Educativa',
-    subtitle: 'Mi formación académica y logros que han moldeado mi camino profesional',
-    viewDetails: 'Ver Detalles',
-    achievements: 'Logros',
-    relevantCoursework: 'Materias Relevantes',
-    inField: 'en'
-  },
-  
-  courses: {
-    title: 'Cursos Completados',
-    subtitle: 'Cursos y formaciones que he completado para desarrollar mis habilidades técnicas y profesionales',
-    searchPlaceholder: 'Buscar cursos...',
-    viewCertificate: 'Ver Certificado',
-    noCoursesFound: 'No se encontraron cursos que coincidan con tus criterios.',
-    clearFilters: 'Limpiar filtros',
-    skillsAcquired: 'Habilidades Adquiridas',
-    viewOriginalCertificate: 'Ver Certificado Original',
-    more: 'más'
-  },
-  
-  certifications: {
-    title: 'Certificaciones Profesionales',
-    subtitle: 'Certificaciones oficiales que validan mis competencias técnicas y profesionales',
-    searchPlaceholder: 'Buscar certificaciones...',
-    viewCertificate: 'Ver Certificado',
-    noCertificationsFound: 'No se encontraron certificaciones',
-    clearFilters: 'Limpiar filtros',
-    competenciesValidated: 'Competencias Validadas',
-    verifyCertification: 'Verificar Certificación',
-    obtained: 'Obtenido:',
-    validUntil: 'Válido hasta:',
-    credentialId: 'ID de Credencial:',
-    upcomingTitle: 'Próximamente: Certificaciones Profesionales',
-    upcomingDescription: 'Estoy trabajando para obtener certificaciones profesionales en tecnologías cloud y desarrollo. ¡Mantente atento!',
-    more: 'más'
-  },
-  
   footer: {
-    description: 'Portfolio profesional que muestra mi educación, certificaciones, proyectos y habilidades.',
-    quickLinks: 'Enlaces Rápidos',
-    contact: 'Contacto',
-    connect: 'Conectar',
+    role: 'Software Engineer | Backend & Full-Stack | Low-Level Systems, Applied AI & Web3',
+    builtWith: 'Construido con React, TypeScript y Tailwind CSS. Desplegado en GitHub Pages.',
     allRightsReserved: 'Todos los derechos reservados.',
-    privacyPolicy: 'Política de Privacidad',
-    termsOfService: 'Términos de Servicio'
+    backToTop: 'Volver arriba'
   },
-  
   common: {
     loading: 'Cargando...',
-    error: 'Error',
+    error: 'Ocurrió un error',
     close: 'Cerrar',
     search: 'Buscar...',
-    all: 'Todos'
+    all: 'Todos',
+    stars: 'estrellas en GitHub'
   }
-}; 
+};

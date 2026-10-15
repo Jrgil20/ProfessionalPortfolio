@@ -1,122 +1,110 @@
 import { useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, GraduationCap, Award, Briefcase, Code, User, BookOpen } from 'lucide-react';
+import { Menu, X, Terminal } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import LanguageSelector from '../ui/LanguageSelector';
+import ThemeToggle from '../ui/ThemeToggle';
+import { profileData } from '../../data/portfolioData';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
   const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
-      const offset = window.scrollY;
-      if (offset > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    // Close mobile menu when changing pages
-    setIsMenuOpen(false);
-  }, [location.pathname]);
-
-  // Nota: Mantenemos las rutas simples, HashRouter se encargará de manejarlas adecuadamente
   const navItems = [
-    { name: t.nav.home, path: '/', icon: <User size={18} /> },
-    { name: t.nav.education, path: '/education', icon: <GraduationCap size={18} /> },
-    { name: t.nav.courses, path: '/courses', icon: <BookOpen size={18} /> },
-    { name: t.nav.certifications, path: '/certifications', icon: <Award size={18} /> },
-    { name: t.nav.projects, path: '/projects', icon: <Briefcase size={18} /> },
+    { name: t.nav.home, href: '#hero' },
+    { name: t.nav.metrics, href: '#metrics' },
+    { name: t.nav.about, href: '#about' },
+    { name: t.nav.projects, href: '#projects' },
+    { name: t.nav.experience, href: '#experience' },
+    { name: t.nav.skills, href: '#skills' },
+    { name: t.nav.education, href: '#education' },
+    { name: t.nav.contact, href: '#contact' },
   ];
 
-  const navLinkClasses = ({ isActive }: { isActive: boolean }) =>
-    `flex items-center gap-1.5 px-3 py-2 rounded-md transition-colors duration-200 ${
-      isActive
-        ? 'bg-primary-50 text-primary-700 font-medium'
-        : 'text-neutral-700 hover:bg-neutral-100'
-    }`;
+  const handleNavClick = () => {
+    setIsMenuOpen(false);
+  };
 
   return (
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-sm shadow-sm'
+          ? 'bg-white/90 dark:bg-slate-950/90 backdrop-blur-md shadow-sm border-b border-slate-200/80 dark:border-slate-800/80'
           : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <div className="flex-shrink-0">
-            <NavLink to="/" className="font-display font-bold text-2xl text-primary-800">
-              {t.nav.portfolio}
-            </NavLink>
-          </div>
           
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1">
+          {/* Logo / Brand */}
+          <a 
+            href="#hero" 
+            className="flex items-center gap-2 group font-mono font-bold text-lg sm:text-xl text-slate-900 dark:text-white"
+          >
+            <span className="p-1.5 rounded-lg bg-primary-500/10 dark:bg-cyan-500/10 text-primary-600 dark:text-cyan-400 group-hover:scale-105 transition-transform">
+              <Terminal size={18} />
+            </span>
+            <span>{profileData.handle}</span>
+          </a>
+
+          {/* Desktop Navigation Links */}
+          <nav className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => (
-              <NavLink
-                key={item.name}
-                to={item.path}
-                className={navLinkClasses}
+              <a
+                key={item.href}
+                href={item.href}
+                className="px-3 py-1.5 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-primary-600 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-800/70 transition-colors"
               >
-                {item.icon}
                 {item.name}
-              </NavLink>
+              </a>
             ))}
-            <div className="ml-4">
-              <LanguageSelector />
-            </div>
           </nav>
-          
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-2">
+
+          {/* Controls: Language + Theme Toggle + Mobile Menu Button */}
+          <div className="flex items-center gap-2 sm:gap-3">
             <LanguageSelector />
-            <button
-              type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary-500"
-              aria-controls="mobile-menu"
-              aria-expanded={isMenuOpen}
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <span className="sr-only">Open main menu</span>
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+            <ThemeToggle />
+
+            {/* Mobile Hamburger Button */}
+            <div className="lg:hidden flex items-center">
+              <button
+                type="button"
+                className="p-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none"
+                aria-label="Abrir menú"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
+              </button>
+            </div>
           </div>
+
         </div>
       </div>
-      
-      {/* Mobile Navigation */}
-      <div
-        className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
-          isMenuOpen ? 'max-h-96' : 'max-h-0'
-        }`}
-        id="mobile-menu"
-      >
-        <div className="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg rounded-b-lg">
+
+      {/* Mobile Drawer */}
+      {isMenuOpen && (
+        <div className="lg:hidden bg-white/95 dark:bg-slate-950/95 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 shadow-xl px-4 pt-2 pb-6 space-y-1">
           {navItems.map((item) => (
-            <NavLink
-              key={item.name}
-              to={item.path}
-              className={navLinkClasses}
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={handleNavClick}
+              className="block px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-primary-600 dark:hover:text-cyan-400 transition-colors"
             >
-              {item.icon}
               {item.name}
-            </NavLink>
+            </a>
           ))}
         </div>
-      </div>
+      )}
     </header>
   );
 };
